@@ -2,7 +2,7 @@
 
 ## Sprint 2
 
-###To Do's:
+### To Do's:
 - [ ] - Create get getting-started route.
 - [ ] - Create get dashboard route.
 - [ ] - Create getting started form UI (Multi Page form that finishes with 'Sign Up' form.).
@@ -48,7 +48,7 @@ What it contains:
 - [ ] - Configure subdomain *dashboard.techmade.co
 
 ## Sprint 1
-###Homepage content:
+### Homepage content:
 - [X] Why We Exist
 - [X] Services
 - [X] How we work
