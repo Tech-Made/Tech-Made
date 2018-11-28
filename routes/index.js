@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+/* GET getstarted page. */
+router.get('/getstarted', function(req, res, next) {
+  res.render('getstarted');
+});
+
 module.exports = router;
