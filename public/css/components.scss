@@ -1,0 +1,24 @@
+$small-phone-width: 310px; // Small tablets and large smartphones (landscape view)
+
+$tablet-width: 768px; // Small tablets (portrait view)
+
+$desktop-width: 1200px; // Large tablets and desktops
+
+// we will design for mobile first so only need to media query tablets and desktop views.
+@mixin phone {
+    @media (min-width: #{$small-phone-width}) {
+        @content;
+      }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+      @content;
+    }
+  }
