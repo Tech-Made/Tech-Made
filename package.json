@@ -8,8 +8,10 @@
     "test-watch": "nodemon --exec 'npm test'"
   },
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "handlebars-helpers": "^0.10.0",

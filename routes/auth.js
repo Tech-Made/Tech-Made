@@ -4,9 +4,7 @@ const router = express.Router();
 const User = require("../models/user");
 
 // SIGN UP FORM
-router.get("/sign-up", (req, res) => {
-    res.render("sign-up");
-});
+
 
 // SIGN UP POST
 router.post("/sign-up", (req, res) => {
