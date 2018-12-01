@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "mocha **/*.test.js",
+    "test-watch": "nodemon --exec 'npm test'"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -17,7 +19,9 @@
   },
   "description": "## Sprint 2",
   "main": "server.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "chai-http": "^4.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tech-Made/Tech-Made.git"
