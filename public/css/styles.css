@@ -105,4 +105,94 @@
 .start-link {
   color: #ffffff; }
 
+@media (min-width: 310px) {
+  .get-started-page {
+    height: 85vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7em;
+    background-color: #5e3080; }
+    .get-started-page h1, .get-started-page h3 {
+      margin: 0;
+      padding: 0; }
+    .get-started-page li {
+      text-align: left;
+      list-style: none;
+      color: black; }
+    .get-started-page .get-started-form {
+      padding-top: 11em;
+      margin: 1em;
+      padding: .5em .7em;
+      border-radius: .5em;
+      font-size: 1.2em;
+      font-weight: 900;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f8f9+0,e5ebee+50,d7dee3+51,f5f7f9+100;White+Gloss */
+      background: #f6f8f9;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
+      /* IE6-9 */
+      -webkit-box-shadow: 10px 10px 47px -7px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 10px 10px 47px -7px rgba(0, 0, 0, 0.75);
+      box-shadow: 10px 10px 47px -7px rgba(0, 0, 0, 0.75);
+      /* Mark input boxes that gets an error on validation: so the js should activate this class */
+      /* Hide all steps by default: */
+      /* Make circles that indicate the steps of the form: */
+      /* Mark the steps that are finished and valid: */ }
+      .get-started-page .get-started-form h3, .get-started-page .get-started-form label {
+        color: #5e3080; }
+      .get-started-page .get-started-form input {
+        padding: 10px;
+        width: 100%;
+        font-size: 17px;
+        font-family: Raleway;
+        border: 1px solid #aaaaaa; }
+      .get-started-page .get-started-form input.invalid {
+        background-color: #ffdddd; }
+      .get-started-page .get-started-form .tab {
+        display: none; }
+      .get-started-page .get-started-form button {
+        height: 4em;
+        border: none;
+        border-radius: .3em;
+        min-width: 126px;
+        background-color: #5e3080;
+        color: #ffffff;
+        border: none;
+        cursor: pointer; }
+      .get-started-page .get-started-form button:hover {
+        background-color: #2e074b;
+        color: #d8d8d8; }
+      .get-started-page .get-started-form button > a {
+        color: #ffffff; }
+      .get-started-page .get-started-form #prevBtn {
+        background-color: #6d6d6d; }
+      .get-started-page .get-started-form .step {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5; }
+      .get-started-page .get-started-form .step.active {
+        opacity: 1; }
+      .get-started-page .get-started-form .step.finish {
+        background-color: #4CAF50; }
+      .get-started-page .get-started-form .how-we-work li {
+        font-weight: 100; }
+
+  footer {
+    position: unset;
+    padding-top: 8rem; } }
+
 /*# sourceMappingURL=styles.css.map */

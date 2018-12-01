@@ -1,4 +1,65 @@
-<main class="getting-started">
+<main class="get-started-page">
+    <h1>Getting Started</h1>
+   <form id="getStartedForm" class="get-started-form" action="/action_page.php">
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+            <h3>What We Offer</h3>
+            <ul>
+                <li>💻 Website Design</li>
+                <li>👷🏻 Content Management System</li>
+                <li>🔒 SSL Security</li>
+                <li>📡 Hosting and Backups</li>
+                <li>💙 Knowledge & Expertise</li>
+            </ul>
+        </div>
+        <div class="tab how-we-work">
+            <h3>How We Work</h3>
+            <ul>
+                <li>  • Once your offer is accepted, we discuss potential design routes.</li>
+                <li>  • We follow a kanban development methodology where we iterate in sprints of work to send you timely updates.</li>
+                <li>  • Between each update, we take into account your feedback to give you an experience you love.</li>
+                <li>  • Once the site is good to go, we make it live.</li>
+                <li>  • Lastly, we give you the tools to update the site and update it as you please.</li>
+            </ul>
+        </div>
+        <div class="tab">
+            <h3>Create account to request website</h3>
+            <label for="first-name">First Name</label>
+            <input placeholder="First Name" class="first-name" oninput="this.className = ''">
+            
+            <label for="last-name">Last Name</label>
+            <input placeholder="Last Name" class="last-name" oninput="this.className = ''">
+
+            <label for="email">Email</label>
+            <input placeholder="Email" class="email" oninput="this.className = ''">
+
+            <label for="phone-number">Phone Number</label>
+            <input placeholder="Phone Number" class="phone-number" oninput="this.className = ''">
+
+            <label for="username">Username</label>
+            <input placeholder="Username" class="username" oninput="this.className = ''">
+
+
+            <label for="password">Password</label>
+            <input placeholder="Password" class="password" oninput="this.className = ''">
+        </div>
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+    </form> 
+</main>
+
+{{!-- <main class="getting-started">
     <h1>Getting Started</h1>
     <h3>What We Offer</h3>
 
@@ -12,6 +73,8 @@
         </ul>
         <button class="first-next"><a href="">Next</a></button>
     </section>
-</main>
+</main> --}}
+
+<script src="/js/form.js"></script>
 
 {{> basic-footer}}
