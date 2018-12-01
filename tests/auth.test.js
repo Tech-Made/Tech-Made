@@ -4,7 +4,7 @@ const chai = require("chai");
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const expect = chai.expect;
-const agent = chai.request.agent(server);
+const agent = chai.request.agent(app);
 var User = require('../models/user');
 
 // NOTE: https://mochajs.org/#arrow-functions

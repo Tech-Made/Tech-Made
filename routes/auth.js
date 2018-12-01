@@ -11,12 +11,11 @@ router.post("/sign-up", (req, res) => {
     // Create User and JWT
     const user = new User(req.body);
 
-    user.save().then(user => {
-        var token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
+    user.save().then((user) => {
+        const token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
         // set the cookie when someone signs up and logsin
         res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
-        console.log(req.cookies);
-        res.redirect("/");
+        res.redirect("/dashboard");
       })
       .catch(err => {
         console.log(err.message);
