@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// one-way hashing algorithm. You cannot retrieve the plain text password without already knowing the salt, rounds and key (password).
 const bcrypt = require('bcrypt');
 
 const UserSchema = new Schema({
@@ -42,4 +43,6 @@ UserSchema.methods.comparePassword = function(password, done) {
     done(err, isMatch);
   });
 };
-  module.exports = mongoose.model("User", UserSchema);
+
+
+module.exports = mongoose.model("User", UserSchema);

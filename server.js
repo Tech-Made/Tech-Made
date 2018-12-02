@@ -2,12 +2,22 @@ require('dotenv').config();
 var createError = require('http-errors');
 const jwt = require('jsonwebtoken');
 const express = require('express');
+// express-validator is a wrapper around validator.js that validates and sanitizes string inputs. In production, your users will try to type in all kinds of nonsense into your forms --- even things your site wasn't intended to deal with! express-validator plugs into the Express.js ecosystem and helps keep you and your code safe.
+const expressValidator = require('express-validator');
+// Essentially, body-parser is a necessary middleware to communicate with your POST requests.
+const bodyParser = require('body-parser')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const bodyParser = require('body-parser')
 
 const app = express();
+
+// Use Body Parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Add after body parser initialization!
+app.use(expressValidator());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,9 +40,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const authRouter = require('./routes/auth');
-const indexRouter = require('./routes/index');
-
 var checkAuth = (req, res, next) => {
   console.log("Checking authentication");
   if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
@@ -44,9 +51,16 @@ var checkAuth = (req, res, next) => {
   }
   next();
 };
-app.use(checkAuth);
+
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
+const projectRouter = require('./routes/project');
 
 app.use('/', indexRouter);
+app.use(checkAuth);
+app.use(userRouter);
+app.use(projectRouter);
+
 // app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

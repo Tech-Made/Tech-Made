@@ -11,4 +11,15 @@ router.get('/getstarted', function(req, res, next) {
   res.render('getstarted');
 });
 
+// GET signup form
+router.get("/signup" , (req,res) => {
+  res.render("signup");
+});
+
+/* GET user dashboard - need to checkAuth here. */
+router.get('/dashboard', function(req, res, next) {
+  res.render('dashboard');
+});
+
+
 module.exports = router;
