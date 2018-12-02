@@ -29,6 +29,9 @@
             border-left: none;
             border-bottom: solid #5e3080;
         }
+        input[type="password"]:focus {
+            color: #5e3080;
+        }
         input::placeholder { /* Almost all browsers! */
             color: #5e3080;
             opacity: 1; 

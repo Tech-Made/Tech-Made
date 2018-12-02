@@ -27,6 +27,8 @@
       border-right: none;
       border-left: none;
       border-bottom: solid #5e3080; }
+    .login-page form input[type="password"]:focus {
+      color: #5e3080; }
     .login-page form input::placeholder {
       /* Almost all browsers! */
       color: #5e3080;
