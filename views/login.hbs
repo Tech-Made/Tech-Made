@@ -1,0 +1,14 @@
+{{> header-login}}
+<main class="login-page">
+    <section class="top">
+        <h3>Login</h3>
+    </section>
+    <form class="login-form" action="/login" method="post">
+            <input name="username" placeholder="Username" oninput="this.className = ''">
+
+            <input type="password" name="password" placeholder="Password" oninput="this.className = ''">
+
+            <button type="submit">Login</button>
+    </form>
+</main>
+{{> scripts}}

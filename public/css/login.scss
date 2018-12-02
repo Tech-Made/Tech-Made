@@ -1,0 +1,65 @@
+.login-page {
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    .top {
+        width: 100vw;
+        top: 0;
+        padding-left: 2em;
+        background: #5e3080;
+    }
+    form {
+        margin-top: 3em; 
+        margin-left: 2em;
+        input {
+            font-family: "Nunito Sans", sans-serif;
+            color: #5e3080;
+            padding: 0;
+            font-size: 1.2em;
+            line-height: 2em;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-bottom: solid #5e3080;
+        }
+        input::placeholder { /* Almost all browsers! */
+            color: #5e3080;
+            opacity: 1; 
+        }
+        input:-ms-input-placeholder {
+            color: #5e3080;
+            opacity: 1; 
+        }
+        input::-ms-input-placeholder {
+            color: #5e3080;
+            opacity: 1; 
+        }
+    }
+
+    button {
+        float:right;
+        height: 4em;
+        border: none;
+        border-radius: .3em;
+        min-width: 126px; 
+        background-color: #5e3080;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #2e074b;
+        color: #d8d8d8;
+    }
+    button > a {
+        color: #ffffff;
+    }
+}

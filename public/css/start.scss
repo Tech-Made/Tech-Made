@@ -1,50 +1,71 @@
 @include phone {
-    .get-started-page {
-        height: 85vh;
-        text-align: center;
+    .start-page {
         display: flex;
         flex-direction: column;
+        // height: 85vh;
         justify-content: center;
         align-items: center;
-        padding-top: 7em;
         background-color: #5e3080;
-        h1, h3 {
-            margin: 0;
-            padding: 0;
-        }
-        li {
+        .top {
+            align-self: flex-start;
+            width: 100vw;
+            z-index: 1;
+            background-color: purple;
+            top: 0;
             text-align: left;
-            list-style: none;
-            color: black;
+            padding-left: 1.3em;
+            padding-right: 1.3em;
+             h1 {
+                font-size: 1.6em;
+             }
         }
         .get-started-form {
-            padding-top: 11em; 
-            margin: 1em;
-            padding: .5em .7em;
-            border-radius: .5em;
-            font-size: 1.2em;
-            font-weight: 900;
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f8f9+0,e5ebee+50,d7dee3+51,f5f7f9+100;White+Gloss */
-            background: rgb(246,248,249); /* Old browsers */
-            background: -moz-linear-gradient(top, rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
-        
-            -webkit-box-shadow: 10px 10px 47px -7px rgba(0,0,0,0.75);
-            -moz-box-shadow: 10px 10px 47px -7px rgba(0,0,0,0.75);
-            box-shadow: 10px 10px 47px -7px rgba(0,0,0,0.75);
-            h3,label {
+            height: 86vh;
+            bottom: 0;
+            width: 100vw;
+            padding: 0em .7em;
+            overflow-y: scroll;
+            padding-bottom: 3em;
+            background-color: #ffffff;
+            .step-circles {
+                padding-top: .8em;
+                text-align: center;
+            }
+            h3 {
                 color: #5e3080;
+                margin-top: 0.4em;
+                font-size: 1.4em;
+            }
+            ul {
+                li {
+                    list-style: none;
+                    color: #000000;
+                    font-size: 1.2em;
+                }
             }
             input {
+                color: #5e3080;
                 padding: 10px;
                 width: 100%;
                 font-size: 17px;
-                font-family: Raleway;
-                border: 1px solid #aaaaaa;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                border-bottom: solid;
+                border-color: #5e3080;            
             }
-
+            input::placeholder { /* Almost all browsers! */
+                color: #5e3080;
+                opacity: 1; 
+            }
+            input:-ms-input-placeholder {
+                color: #5e3080;
+                opacity: 1; 
+            }
+            input::-ms-input-placeholder {
+                color: #5e3080;
+                opacity: 1; 
+            }
             /* Mark input boxes that gets an error on validation: so the js should activate this class */
             input.invalid {
                 background-color: #ffdddd;
@@ -56,6 +77,7 @@
             }
 
             button {
+                float:right;
                 height: 4em;
                 border: none;
                 border-radius: .3em;
@@ -97,15 +119,16 @@
             .step.finish {
                 background-color: #4CAF50;
             }
-            .how-we-work {
-                li {
-                    font-weight: 100;
-                }
-            }
         }
     }
     // footer {
     //     position: unset;
     //     padding-top: 8rem;
     // }
+}
+
+@include desktop {
+    .start-page .get-started-form {
+        padding: 0em 19em;
+    }
 }
