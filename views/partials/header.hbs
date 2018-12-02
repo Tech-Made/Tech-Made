@@ -22,9 +22,12 @@
                 <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
                 <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
                 <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
-                <li><a href="/logout" title="logout">Logout</a></li>
-                <li><a href="/login" title="login">Login</a></li>
-                <li><a href="/signup" title="signup">Sign Up</a></li>
+                {{#if currentUser}}
+                    <li><a href="/logout" title="logout">Logout</a></li>
+                {{else}}
+                    <li><a href="/login" title="login">Login</a></li>
+                    <li><a href="/signup" title="signup">Sign Up</a></li>
+                {{/if}}
             </ul>
 
             <p><a href='#0'>Tech Made</a> A design and development agency based out of Silicon Valley. We design thoughtful digital experiences for independent creatives and influencers.</p>

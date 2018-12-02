@@ -4,7 +4,12 @@ const jwt = require('jsonwebtoken');
 const User = require("../models/user");
 
 router.get('/login', (req,res) => {
-    res.render('login');
+    const currentUser = req.user;
+    if (req.user) {
+        res.redirect('dashboard');
+    } else {
+        res.render('login');
+    }
 });
 
 // LOGOUT
@@ -15,7 +20,12 @@ router.get('/logout', (req, res) => {
 
 /* GET start page. */
 router.get('/start', function(req, res, next) {
-    res.render('start');
+    const currentUser = req.user;
+    if (req.user) {
+        res.redirect('dashboard');
+    } else {
+        res.render('start');
+    }
 });  
 
 // SIGN UP POST
@@ -38,7 +48,12 @@ router.post("/start", (req, res) => {
 
 /* GET user dashboard - need to checkAuth here. */
 router.get('/dashboard', function(req, res, next) {
-    res.render('dashboard');
+    const currentUser = req.user;
+    if (req.user) {
+        res.render('dashboard', {currentUser} );
+    } else {
+        res.redirect('login');
+    }
 });
 
 router.post('/login', (req,res) => {

@@ -21,9 +21,19 @@ it('should return /index page', (done) => { // research done callback
         .catch(err => done(err))
 });
 
-it('should return /getstarted page', (done) => { // research done callback
+it('should return /start page', (done) => { // research done callback
     chai.request(app)
-        .get('/getstarted')
+        .get('/start')
+        .then(function(res) {
+            expect(res).to.have.status(200) // always start with the simpliest test
+            return done();
+        })
+        .catch(err => done(err))
+});
+
+it('should return /login page', (done) => { // research done callback
+    chai.request(app)
+        .get('/login')
         .then(function(res) {
             expect(res).to.have.status(200) // always start with the simpliest test
             return done();
@@ -47,8 +57,8 @@ it('should create new user on signup', (done) => {
 
 it('should not create user if email already exists');
    
-   // login
-   it('should login user and return a auth token',  (done)=> {
+// login
+it('should login user and return a auth token',  (done)=> {
     agent
       .post('/login')
       .send({ email: "username", password: "password" })
@@ -57,7 +67,19 @@ it('should not create user if email already exists');
         res.should.have.cookie("nToken");
         done();
       });
-   });
+});
+
+it('should not be able to login if they have not registered',(done)=> {
+    agent
+        .post('/login', { email: "wrong@wrong.com", password: "nope" })
+        .end( (err, res)=>{
+        console.log("res.status:",res.status);
+        
+        res.status.should.be.equal(401);
+        done();
+        });
+ 
+})
 
 it('should logout', (done) => {
     agent
@@ -68,13 +90,3 @@ it('should logout', (done) => {
         done();
       });
    });
-
-it('should not be able to login if they have not registered',(done)=> {
-    agent
-        .post('/login', { email: "wrong@wrong.com", password: "nope" })
-        .end( (err, res)=>{
-        res.status.should.be.equal(401);
-        done();
-        });
- 
-    })
