@@ -30,6 +30,7 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
+// -- Do not write API documentation in comments. API documentation lives in its own repository.
 
 // database connection
 require('./data/techmade-db');
@@ -40,7 +41,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware is a function with access to the request object (req), the response object (res), and the next middleware in the application’s request-response cycle, commonly denoted by a variable named next.
+
+// Middleware can:
+
+// Execute any code.
+// Make changes to the request and the response objects.
+// End the request-response cycle.
+// Call the next middleware in the stack.
+
+
 var checkAuth = (req, res, next) => {
+    // - intercepts every route
+    // - check if there is a user
+    // - continue to what the route was meant to do with that information.
   console.log("Checking authentication");
   if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
     req.user = null;
@@ -52,16 +66,16 @@ var checkAuth = (req, res, next) => {
   next();
 };
 
+// Create routers for every route in app
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const projectRouter = require('./routes/project');
 
-app.use('/', indexRouter);
+// Tell app to use each of these Routers
 app.use(checkAuth);
+app.use('/', indexRouter);
 app.use(userRouter);
 app.use(projectRouter);
-
-// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

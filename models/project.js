@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Update = require("../models/update");
 
-const PostSchema = new Schema({
-    // updatedAt: { type: Date },
+const ProjectSchema = new Schema({
+    createdAt: { type: Date },
+    updatedAt: { type: Date },
     title: { type: String, required: true },
     summary: { type: String, required: true },
-    author : { type: Schema.Types.ObjectId, ref: "User", required: true }
+    inspirations: { type: String},
+    budget: {type: String},
+    updates : { type: Schema.Types.ObjectId, ref: "Update", required: true }
 });
 
-PostSchema.pre("save", function(next) {
+ProjectSchema.pre("save", function(next) {
     // SET createdAt AND updatedAt
     const now = new Date();
     this.updatedAt = now;
@@ -20,5 +24,5 @@ PostSchema.pre("save", function(next) {
     next();
   });
   
-  module.exports = mongoose.model("Post", PostSchema);
+  module.exports = mongoose.model("Project", ProjectSchema);
   

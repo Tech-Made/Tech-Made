@@ -1,0 +1,13 @@
+Admin
+
+Client
+ - Project
+
+Project
+- client
+ - updates: updates
+
+Update
+Title: "finished landing page"
+Details: "we added the logo to the logo, moved over the side menu and changed the colors."
+Feedback: "I'd like there to be a more popping purple on this."

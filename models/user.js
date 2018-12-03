@@ -11,7 +11,8 @@ const UserSchema = new Schema({
   phoneNumber: { type: String, required: true },
   username: { type: String, required: true },
   password: { type: String, select: false },
-  projects : [{ type: Schema.Types.ObjectId, ref: "Project", required: false }]
+  projects : [{ type: Schema.Types.ObjectId, ref: "Project", required: false }],
+  isAdmin: { type: Boolean, default: false }
 });
 
 // Must use function here! ES6 => functions do not bind this! - Tut
