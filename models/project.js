@@ -6,10 +6,14 @@ const ProjectSchema = new Schema({
     createdAt: { type: Date },
     updatedAt: { type: Date },
     title: { type: String, required: true },
-    summary: { type: String, required: true },
+    details: { type: String, required: true },
+    colors: { type: String },
     inspirations: { type: String},
+    comments: { type: String},
+    timeline: { type: String},
     budget: {type: String},
-    updates : { type: Schema.Types.ObjectId, ref: "Update", required: true }
+    stage: { type: Number, default: 0 }
+    // updates : { type: Schema.Types.ObjectId, ref: "Update" }
 });
 
 ProjectSchema.pre("save", function(next) {

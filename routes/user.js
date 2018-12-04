@@ -3,6 +3,11 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
 
+// refactor code like this.
+// router.route('/login')
+//     .post()
+//     .get(/* logic goes here */)!
+
 router.post('/login', (req,res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -41,6 +46,7 @@ router.post('/login', (req,res) => {
         console.log(err);
     });
 });
+
 
 router.get('/login', (req,res) => {
     // Checks if there's a a user and if that user's an admin.

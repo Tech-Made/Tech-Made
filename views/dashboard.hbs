@@ -1,3 +1,36 @@
-<main>
-    <h1>WELCOME TO UR DASHBOARD</h1>
+
+{{> loggedin-header }}
+<main class="dashboard">
+    {{!-- i think this should be a post to request route honestly not too sure! --}}
+    {{!-- hh > if user.stage == 0 --}}
+    <section class="top">
+        <h3>Request your website</h3>
+    </section>
+        <form class="request-form" action="/request" method="post">
+            <input type="text" name="title" placeholder="Title">
+            
+            <label for="details">Details of idea</label>
+            <textarea name="details" cols="15" rows="5" required="true"></textarea>
+            
+            <label for="colors">Color Scheme</label>
+            <input name="colors" placeholder="Any colors in mind?" type="text">
+
+            <label for="inspirations">Inspirational Designs</label>
+            <input name="inspirations" placeholder="And inspirational designs, other websites?">
+
+            <label for="comments">Additional Comments</label>
+            <input name="comments" placeholder="Additional Comments/Questions">
+
+            <label for="timeline">Timeline</label>
+            <input type="text" name="timeline" placeholder="When would you like this done by?">
+
+            <label for="budget">Budget</label>
+            <input type="text" name="budget" placeholder="What's your budget?">
+
+            <button type="submit">Submit</button>
+        </form>
 </main>
+
+{{> scripts }}
+
+{{> basic-footer }}

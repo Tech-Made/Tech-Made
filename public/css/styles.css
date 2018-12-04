@@ -66,7 +66,7 @@
       align-self: flex-start;
       width: 100vw;
       z-index: 1;
-      background-color: purple;
+      background-color: #5e3080;
       top: 0;
       text-align: left;
       padding-left: 1.3em;
@@ -163,5 +163,104 @@
 
 .start-link {
   color: #ffffff; }
+
+@media (min-width: 310px) {
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5e3080; }
+    .dashboard .top {
+      align-self: flex-start;
+      width: 100vw;
+      z-index: 1;
+      background-color: #5e3080;
+      top: 0;
+      text-align: left;
+      padding-left: 1.3em;
+      padding-right: 1.3em; }
+      .dashboard .top h1 {
+        font-size: 1.6em; }
+    .dashboard .get-started-form {
+      height: 86vh;
+      bottom: 0;
+      width: 100vw;
+      padding: 0em .7em;
+      overflow-y: scroll;
+      padding-bottom: 3em;
+      background-color: #ffffff;
+      /* Mark input boxes that gets an error on validation: so the js should activate this class */
+      /* Hide all steps by default: */
+      /* Make circles that indicate the steps of the form: */
+      /* Mark the steps that are finished and valid: */ }
+      .dashboard .get-started-form .step-circles {
+        padding-top: .8em;
+        text-align: center; }
+      .dashboard .get-started-form h3 {
+        color: #5e3080;
+        margin-top: 0.4em;
+        font-size: 1.4em; }
+      .dashboard .get-started-form ul li {
+        list-style: none;
+        color: #000000;
+        font-size: 1.2em; }
+      .dashboard .get-started-form input {
+        color: #5e3080;
+        padding: 10px;
+        width: 100%;
+        font-size: 17px;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: solid;
+        border-color: #5e3080; }
+      .dashboard .get-started-form input::placeholder {
+        /* Almost all browsers! */
+        color: #5e3080;
+        opacity: 1; }
+      .dashboard .get-started-form input:-ms-input-placeholder {
+        color: #5e3080;
+        opacity: 1; }
+      .dashboard .get-started-form input::-ms-input-placeholder {
+        color: #5e3080;
+        opacity: 1; }
+      .dashboard .get-started-form input.invalid {
+        background-color: #ffdddd; }
+      .dashboard .get-started-form .tab {
+        display: none; }
+      .dashboard .get-started-form button {
+        float: right;
+        height: 4em;
+        border: none;
+        border-radius: .3em;
+        min-width: 126px;
+        background-color: #5e3080;
+        color: #ffffff;
+        border: none;
+        cursor: pointer; }
+      .dashboard .get-started-form button:hover {
+        background-color: #2e074b;
+        color: #d8d8d8; }
+      .dashboard .get-started-form button > a {
+        color: #ffffff; }
+      .dashboard .get-started-form #prevBtn {
+        background-color: #6d6d6d; }
+      .dashboard .get-started-form .step {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5; }
+      .dashboard .get-started-form .step.active {
+        opacity: 1; }
+      .dashboard .get-started-form .step.finish {
+        background-color: #4CAF50; } }
+@media (min-width: 1200px) {
+  .start-page .get-started-form {
+    padding: 0em 19em; } }
 
 /*# sourceMappingURL=styles.css.map */
