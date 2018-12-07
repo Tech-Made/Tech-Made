@@ -9,7 +9,8 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+// const Handlebars = require('handlebars');
+// const HandlebarsIntl = require('handlebars-intl');
 const app = express();
 
 // Use Body Parser
@@ -30,8 +31,6 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
-// -- Do not write API documentation in comments. API documentation lives in its own repository.
-
 // database connection
 require('./data/techmade-db');
 
@@ -50,29 +49,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 // End the request-response cycle.
 // Call the next middleware in the stack.
 
-
-var checkAuth = (req, res, next) => {
-    // - intercepts every route
-    // - check if there is a user
-    // - continue to what the route was meant to do with that information.
-  console.log("Checking authentication");
-  if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
-    req.user = null;
-  } else {
-    var token = req.cookies.nToken;
-    var decodedToken = jwt.decode(token, { complete: true }) || {};
-    req.user = decodedToken.payload;
-  }
-  next();
-};
+// const errorHandling = require('./middleware/errorHandling');
+const checkAuth = require('./middleware/checkAuth');
+const redirectToLogin = require('./middleware/redirectToLogin');
+// app.use(require('./middleware/checkAuth'));
 
 // Create routers for every route in app
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const projectRouter = require('./routes/project');
 
-// Tell app to use each of these Routers
+// Tell app to use each of these Routers and Middleware
+// app.use(errorHandling);
 app.use(checkAuth);
+app.use('/dashboard', redirectToLogin);
 app.use('/', indexRouter);
 app.use(userRouter);
 app.use(projectRouter);

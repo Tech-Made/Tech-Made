@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
+// middleware
+const checkAuth = require("../middleware/checkAuth");
+const redirectToLogin = require("../middleware/redirectToLogin");
+
+
 
 // refactor code like this.
 // router.route('/login')
@@ -30,14 +35,7 @@ router.post('/login', (req,res) => {
             // Set a cookie and redirect to root
             res.cookie("nToken", token, {maxAge: 900000, httpOnly:true});
             User.findById(user._id).then(user => {
-                // console.log("user:", user);
-                if (!user.isAdmin) {
-                    // should i redirect to dashboard here or render dashboard w/ currUser
-                    res.redirect('dashboard');
-                } else {
-                    // console.log("redirecting to admin dashboard!");
-                    res.redirect('admin-dashboard');
-                }
+                res.redirect('dashboard');
             })
             
         });
@@ -64,36 +62,9 @@ router.get('/login', (req,res) => {
     }
 });
 
-/* GET admin-dashboard page. */
-router.get('/admin-dashboard', function(req, res, next) {
-    const currentUser = req.user;
-    if (currentUser) {
-        User.findById(currentUser._id).then(user => {
-            if (user.isAdmin) {
-                res.render('admin-dashboard');
-            } else {
-                res.redirect('dashboard');
-            }
-        });
-    } else {
-        res.redirect('login');
-    }
-});
-
 /* GET user dashboard - need to checkAuth here. */
 router.get('/dashboard', function(req, res, next) {
-    const currentUser = req.user;
-    if (currentUser) {
-        User.findById(currentUser._id).then(user => {
-            if (user.isAdmin) {
-                res.redirect('admin-dashboard');
-            } else {
-                res.render('dashboard');
-            }
-        })
-    } else {
-        res.redirect('login');
-    }
+    res.render('dashboard');
 });
 
 // LOGOUT
@@ -104,8 +75,6 @@ router.get('/logout', (req, res) => {
 
 /* GET start page. */
 router.get('/start', function(req, res, next) {
-    const currentUser = req.user;
-
     if (req.user) {
         res.redirect('dashboard');
     } else {
@@ -118,7 +87,7 @@ router.post("/start", (req, res) => {
     // Create User and JWT
     const user = new User(req.body);
     user.save().then((user) => {
-        const token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
+        const token = jwt.sign({ _id: user._id, isAdmin: user.isAdmin }, process.env.SECRET, { expiresIn: "60 days" });
         console.log("token:", token);
         // set the cookie when someone signs up and logs in
         res.cookie('nToken', token, { maxAge: 600000, httpOnly: true });

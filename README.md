@@ -1,11 +1,20 @@
 # Tech-Made
 
+## Sprint 3
+
+### To Do's:
+- [ ] - 
+- [ ] - 
+- [ ] - 
+- [ ] - 
+
+
 ## Sprint 2
 
 ### To Do's:
 - [X] - Create get getting-started route.
-- [ ] - Create get dashboard route.
-- [ ] - Create getting started form UI (Multi Page form that finishes with 'Sign Up' form.).
+- [X] - Create get dashboard route.
+- [X] - Create getting started form UI (Multi Page form that finishes with 'Sign Up' form.).
 
 ### Getting Started
 Opening Form - Showcasing what we offer:
