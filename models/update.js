@@ -6,7 +6,7 @@ const UpdateSchema = new Schema({
     updatedAt: { type: Date },
     title: { type: String, required: true },
     // details: { type: String, required: true },
-    feedback: { type: String}
+    feedback: { type: Array}
 });
 
 UpdateSchema.pre("save", function(next) {

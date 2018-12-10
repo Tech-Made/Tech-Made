@@ -13,9 +13,10 @@ const ProjectSchema = new Schema({
     comments: { type: String},
     timeline: { type: String},
     budget: {type: String},
+    projectPercentage: {type: Number, default: 5},
     clientId: { type: Schema.Types.ObjectId, ref: "User" },
     requested: {type: Boolean, default: false},
-    updates : { type: Array }
+    updates : { type: Array, default: null }
 });
 
 ProjectSchema.pre("save", function(next) {
