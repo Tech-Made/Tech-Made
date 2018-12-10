@@ -3,12 +3,12 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
 const Project = require("../models/project");
+const Update = require("../models/update");
+
 
 // middleware
 const checkAuth = require("../middleware/checkAuth");
 const redirectToLogin = require("../middleware/redirectToLogin");
-
-
 
 // refactor code like this.
 // router.route('/login')
@@ -76,15 +76,51 @@ router.get('/dashboard', function(req, res, next) {
         })
     }
     else {
+        // User.find
         User.find()
         .then(client => {
-            console.log("client:", client);
             res.render('dashboard', { client } );
         })
         .catch(err => {
             console.log(err);
-        })
-    }
+        });
+    };
+});
+
+router.get('/dashboard/users/:id', (req,res) => {
+    clientId = req.params.id;
+    console.log("clientId:", clientId);
+    User.findById(clientId)
+    .then((client) => {
+        console.log("client:", client);
+        res.render('client', {client} );
+    }).catch(err => {
+        console.log(err);
+    });
+});
+
+router.post('/dashboard/users/:clientId', (req,res) => {
+    title = req.body.title;
+    console.log("title:", title);
+    clientId = req.params.clientId;
+    console.log("clientId:", clientId);    
+    Project.findOne( {clientId: clientId} )
+    .then((project) => {
+        console.log("project:", project);
+        const update = new Update();
+        console.log("update:", update); 
+        update.title = title;
+        console.log("update updated:", update);
+        update.save();
+        console.log("project:", project);
+        console.log("project updates:", project.updates);
+        project.updates.push(update._id);
+        console.log("project updates:", project.updates)
+        project.save()
+        res.redirect('/dashboard');
+    }).catch(err => {
+        console.log(err);
+    });
 });
 
 // LOGOUT

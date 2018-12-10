@@ -4,7 +4,10 @@
     <h1>Admin Dashboard</h1>
     <h3>Clients</h3>
     <ul>
-        <li>{{client}}</li>
+        {{#each client}}
+        <input type="hidden" name="clientId" value="{{ this._id }}"> 
+        <li><a href="/dashboard/users/{{this._id}}">{{this.fullName}}</a></li>
+        {{/each}}
     </ul>
 {{else}}
         {{!-- i think this should be a post to request route honestly not too sure! --}}
@@ -36,6 +39,8 @@
 
                 <label for="budget">Budget</label>
                 <input type="text" name="budget" placeholder="What's your budget?">
+
+                <input type="hidden" name="clientId" value="{{ authenticatedUser._id }}"> 
 
                 <button class="white-btn" type="submit">Submit</button>
             </form> 

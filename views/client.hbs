@@ -1,0 +1,8 @@
+<main class="client">
+    <h2>{{client.fullName}}</h2>
+    <form action="/dashboard/users/{{client._id}}" method="post">
+        <label for="title">Update:</label>
+        <input type="text" name="title">
+        <button type="submit">Send Update</button>
+    </form>
+</main>

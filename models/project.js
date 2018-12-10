@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Update = require("../models/update");
+const User = require("../models/update");
 
 const ProjectSchema = new Schema({
     createdAt: { type: Date },
@@ -12,8 +13,9 @@ const ProjectSchema = new Schema({
     comments: { type: String},
     timeline: { type: String},
     budget: {type: String},
-    requested: {type: Boolean, default: false}
-    // updates : { type: Schema.Types.ObjectId, ref: "Update" }
+    clientId: { type: Schema.Types.ObjectId, ref: "User" },
+    requested: {type: Boolean, default: false},
+    updates : { type: Array }
 });
 
 ProjectSchema.pre("save", function(next) {
