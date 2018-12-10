@@ -1,60 +1,66 @@
-.login-page {
-  top: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 1;
-  width: 100vw;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left; }
-  .login-page .top {
-    width: 100vw;
-    top: 0;
-    padding-left: 2em;
-    background: #5e3080; }
-  .login-page form {
-    margin-top: 3em;
-    margin-left: 2em; }
-    .login-page form input {
-      font-family: "Nunito Sans", sans-serif;
-      color: #5e3080;
-      padding: 0;
-      font-size: 1.2em;
-      line-height: 2em;
-      border-top: none;
-      border-right: none;
-      border-left: none;
-      border-bottom: solid #5e3080; }
-    .login-page form input[type="password"]:focus {
-      color: #5e3080; }
-    .login-page form input::placeholder {
-      /* Almost all browsers! */
-      color: #5e3080;
-      opacity: 1; }
-    .login-page form input:-ms-input-placeholder {
-      color: #5e3080;
-      opacity: 1; }
-    .login-page form input::-ms-input-placeholder {
-      color: #5e3080;
-      opacity: 1; }
-  .login-page button {
-    float: right;
-    height: 4em;
-    border: none;
-    border-radius: .3em;
-    min-width: 126px;
-    background-color: #5e3080;
-    color: #ffffff;
-    border: none;
-    cursor: pointer; }
-  .login-page button:hover {
-    background-color: #2e074b;
-    color: #d8d8d8; }
-  .login-page button > a {
-    color: #ffffff; }
+.purple-btn {
+  height: 4em;
+  border: none;
+  border-radius: .3em;
+  min-width: 126px;
+  background-color: #5e3080;
+  color: #ffffff;
+  border: none;
+  cursor: pointer; }
 
+.white-btn {
+  height: 4em;
+  border: none;
+  border-radius: .3em;
+  min-width: 126px;
+  background-color: #ffffff;
+  color: #5e3080;
+  border: none;
+  cursor: pointer; }
+
+.white-btn:hover {
+  background-color: #000000;
+  color: #ffffff; }
+
+@media (min-width: 310px) {
+  .login-page {
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    background-color: #5e3080;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left; }
+    .login-page .top {
+      width: 100vw;
+      top: 0;
+      padding-left: 2em;
+      background: #5e3080; }
+    .login-page form {
+      margin-top: 3em;
+      margin-left: 2em; }
+      .login-page form label {
+        font-size: 1.3em; }
+      .login-page form input {
+        font-family: "Nunito Sans", sans-serif;
+        padding-left: 1em !important;
+        padding: 0;
+        font-size: 1.2em;
+        line-height: 2em;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: solid #ffffff; }
+      .login-page form input:-webkit-autofill {
+        -webkit-text-fill-color: #dbdbdb;
+        transition: background-color 5000s ease-in-out 0s; }
+    .login-page button {
+      float: right; }
+    .login-page button > a {
+      color: #ffffff; } }
 @media (min-width: 310px) {
   .start-page {
     display: flex;
@@ -165,102 +171,52 @@
   color: #ffffff; }
 
 @media (min-width: 310px) {
-  .dashboard {
+  .initial-contact-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #5e3080; }
-    .dashboard .top {
-      align-self: flex-start;
-      width: 100vw;
-      z-index: 1;
-      background-color: #5e3080;
-      top: 0;
-      text-align: left;
-      padding-left: 1.3em;
-      padding-right: 1.3em; }
-      .dashboard .top h1 {
-        font-size: 1.6em; }
-    .dashboard .get-started-form {
-      height: 86vh;
-      bottom: 0;
-      width: 100vw;
-      padding: 0em .7em;
-      overflow-y: scroll;
-      padding-bottom: 3em;
-      background-color: #ffffff;
-      /* Mark input boxes that gets an error on validation: so the js should activate this class */
-      /* Hide all steps by default: */
-      /* Make circles that indicate the steps of the form: */
-      /* Mark the steps that are finished and valid: */ }
-      .dashboard .get-started-form .step-circles {
-        padding-top: .8em;
-        text-align: center; }
-      .dashboard .get-started-form h3 {
-        color: #5e3080;
-        margin-top: 0.4em;
-        font-size: 1.4em; }
-      .dashboard .get-started-form ul li {
-        list-style: none;
-        color: #000000;
-        font-size: 1.2em; }
-      .dashboard .get-started-form input {
-        color: #5e3080;
-        padding: 10px;
-        width: 100%;
-        font-size: 17px;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: solid;
-        border-color: #5e3080; }
-      .dashboard .get-started-form input::placeholder {
-        /* Almost all browsers! */
-        color: #5e3080;
-        opacity: 1; }
-      .dashboard .get-started-form input:-ms-input-placeholder {
-        color: #5e3080;
-        opacity: 1; }
-      .dashboard .get-started-form input::-ms-input-placeholder {
-        color: #5e3080;
-        opacity: 1; }
-      .dashboard .get-started-form input.invalid {
-        background-color: #ffdddd; }
-      .dashboard .get-started-form .tab {
-        display: none; }
-      .dashboard .get-started-form button {
-        float: right;
-        height: 4em;
-        border: none;
-        border-radius: .3em;
-        min-width: 126px;
-        background-color: #5e3080;
-        color: #ffffff;
-        border: none;
-        cursor: pointer; }
-      .dashboard .get-started-form button:hover {
-        background-color: #2e074b;
-        color: #d8d8d8; }
-      .dashboard .get-started-form button > a {
-        color: #ffffff; }
-      .dashboard .get-started-form #prevBtn {
-        background-color: #6d6d6d; }
-      .dashboard .get-started-form .step {
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbbbbb;
-        border: none;
-        border-radius: 50%;
-        display: inline-block;
-        opacity: 0.5; }
-      .dashboard .get-started-form .step.active {
-        opacity: 1; }
-      .dashboard .get-started-form .step.finish {
-        background-color: #4CAF50; } }
+    .initial-contact-form h3 {
+      margin-top: 3em; }
+    .initial-contact-form .request-form label {
+      font-size: 1.8rem; }
+    .initial-contact-form .request-form input {
+      width: 17em;
+      height: 3em; }
+    .initial-contact-form .request-form input:-webkit-autofill {
+      -webkit-text-fill-color: #ffffff;
+      transition: background-color 5000s ease-in-out 0s; }
+    .initial-contact-form .request-form .details {
+      width: 17em; }
+
+  .client-dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5e3080;
+    text-align: center;
+    padding: 0px 10px 0px; }
+    .client-dashboard .welcome {
+      margin-top: 3em; }
+    .client-dashboard .description {
+      color: #ffffff; }
+    .client-dashboard .feedback-form {
+      display: flex;
+      flex-direction: column; } }
 @media (min-width: 1200px) {
   .start-page .get-started-form {
-    padding: 0em 19em; } }
+    padding: 0em 19em; }
+
+  .initial-contact-form h3 {
+    font-size: 3rem; }
+  .initial-contact-form .request-form label {
+    font-size: 2.1rem; }
+  .initial-contact-form .request-form input {
+    width: 32em;
+    height: 3.4em; }
+  .initial-contact-form .request-form .details {
+    width: 32em; } }
 
 /*# sourceMappingURL=styles.css.map */

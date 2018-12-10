@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
+const Project = require("../models/project");
+
 // middleware
 const checkAuth = require("../middleware/checkAuth");
 const redirectToLogin = require("../middleware/redirectToLogin");
@@ -64,7 +66,25 @@ router.get('/login', (req,res) => {
 
 /* GET user dashboard - need to checkAuth here. */
 router.get('/dashboard', function(req, res, next) {
-    res.render('dashboard');
+    if (req.user.isAdmin == false && req.user.projects) {
+        Project.findById(req.user.projects)
+        .then(project => {
+            res.render('dashboard', { project } )
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+    else {
+        User.find()
+        .then(client => {
+            console.log("client:", client);
+            res.render('dashboard', { client } );
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
 });
 
 // LOGOUT
@@ -84,6 +104,13 @@ router.get('/start', function(req, res, next) {
 
 // SIGN UP POST
 router.post("/start", (req, res) => {
+    const username = req.body.username;
+    // const email = req.body.email;
+    User.findOne({username}, "username").then(user => {
+        if(user) {
+            return res.status(401).send({ message: "Account with this username already exists" });
+        }
+    });
     // Create User and JWT
     const user = new User(req.body);
     user.save().then((user) => {
@@ -91,6 +118,7 @@ router.post("/start", (req, res) => {
         console.log("token:", token);
         // set the cookie when someone signs up and logs in
         res.cookie('nToken', token, { maxAge: 600000, httpOnly: true });
+        console.log("new user:", user);
         
         res.redirect("/dashboard");
     })

@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const UpdateSchema = new Schema({
     createdAt: { type: Date },
     updatedAt: { type: Date },
     title: { type: String, required: true },
-    details: { type: String, required: true },
+    // details: { type: String, required: true },
     feedback: { type: String}
 });
 

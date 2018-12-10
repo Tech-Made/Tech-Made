@@ -3,10 +3,21 @@
 ## Sprint 3
 
 ### To Do's:
-- [ ] - 
-- [ ] - 
-- [ ] - 
-- [ ] - 
+
+- Admin user can post a string to the user's project 
+
+- [-] - Create login/signup error message views 
+- [ ] - Fix website register form UI
+- [ ] - Design Dashboard UI
+
+### Notes
+ MVP User authentication error handling user experience
+ If a user registers with an email that already exists or username that already exists,
+ - they should be prompted to login and have a flash message saying an account with that
+ username and/or email already exists.
+- Create frontend JavaScript to check that their niputted password is strong enough.
+- If a user tries to login with an incorrect email/password
+    - refresh the page and flash them that the login info is incorrect.
 
 
 ## Sprint 2

@@ -4,11 +4,12 @@
         <h3>Login</h3>
     </section>
     <form class="login-form" action="/login" method="post">
-            <input name="username" placeholder="Username" oninput="this.className = ''">
-
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Username" oninput="this.className = ''">
+            <label for="password">Password</label>
             <input type="password" name="password" placeholder="Password" oninput="this.className = ''">
 
-            <button type="submit">Login</button>
+            <button class="white-btn" type="submit">Login</button>
     </form>
 </main>
 {{> scripts}}

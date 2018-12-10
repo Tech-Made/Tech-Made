@@ -12,7 +12,6 @@ const ProjectSchema = new Schema({
     comments: { type: String},
     timeline: { type: String},
     budget: {type: String},
-    stage: { type: Number, default: 0 },
     requested: {type: Boolean, default: false}
     // updates : { type: Schema.Types.ObjectId, ref: "Update" }
 });

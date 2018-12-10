@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// one-way hashing algorithm. You cannot retrieve the plain text password without already knowing the salt, rounds and key (password).
 const bcrypt = require('bcrypt');
 
 const UserSchema = new Schema({
@@ -15,15 +14,19 @@ const UserSchema = new Schema({
   isAdmin: { type: Boolean, default: false }
 });
 
-// Must use function here! ES6 => functions do not bind this! - Tut
-// Define the callback with a regular function to avoid problems with this - JC
+// const User = mongoose.model("User", UserSchema);
 UserSchema.pre("save", function(next) {
-  // SET createdAt AND updatedAt
+  // check if user already exists.
+  // User.find({username: this.username, email: this.email}).then(user => {
+  //     next(new Error("User exists!"));
+  // });
+
   const now = new Date();
   this.updatedAt = now;
   if (!this.createdAt) {
     this.createdAt = now;
   }
+
   // ENCRYPT PASSWORD
   const user = this;
   if (!user.isModified("password")) {
@@ -33,16 +36,33 @@ UserSchema.pre("save", function(next) {
     bcrypt.hash(user.password, salt, (err, hash) => {
       user.password = hash;
       next();
-    });
-  });
-});
+    }); //ends bcrypt.hash()
+
+  }); //ends bcrypt.genSalt()
+
+}); //end UserSchema.pre()
   
 // Need to use function to enable this.password to work.
 UserSchema.methods.comparePassword = function(password, done) {
   bcrypt.compare(password, this.password, (err, isMatch) => {
     done(err, isMatch);
   });
-};
-
+}; //ends comparePassword
 
 module.exports = mongoose.model("User", UserSchema);
+
+  
+  // User.find({username: this.username, email: this.email}, function() {
+  //   console.log("username:", username);
+    
+  //   if (username || email) {
+  //     console.log("this person already exists.");
+  //     console.log("username:", username);
+  //     console.log("email:", email);
+  //     next(new Error("User exists!"));
+  //   } else {
+  //     console.log("IN THE ELSE");
+      
+  //     next();
+  //   }
+  // })

@@ -21,4 +21,31 @@ $desktop-width: 1200px; // Large tablets and desktops
     @media (min-width: #{$desktop-width}) {
       @content;
     }
-  }
+}
+
+.purple-btn {
+  height: 4em;
+  border: none;
+  border-radius: .3em;
+  min-width: 126px;
+  background-color: #5e3080;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.white-btn {
+  height: 4em;
+  border: none;
+  border-radius: .3em;
+  min-width: 126px;
+  background-color: #ffffff;
+  color: #5e3080;
+  border: none;
+  cursor: pointer;
+}
+
+.white-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
