@@ -13,38 +13,38 @@
         {{!-- i think this should be a post to request route honestly not too sure! --}}
         {{!-- hh > if user.stage == 0 --}}
         {{#unless authenticatedUser.projects}}
-        <main class="initial-contact-form">
-        {{!-- <section class="top">
-            <h3>Request your website</h3>
-        </section> --}}
-            <h3>Request your website</h3>
-            <form class="request-form" action="/dashboard" method="post">
-                <label for="title">Title</label>
-                <input class="title" type="text" name="title" placeholder="Title">
-                
-                <label for="details">Details of idea</label>
-                <textarea class="details" name="details" cols="15" rows="5" required="true"></textarea>
-                
-                <label for="colors">Color Scheme</label>
-                <input name="colors" placeholder="Any colors in mind?" type="text">
+            <main class="initial-contact-form">
+            {{!-- <section class="top">
+                <h3>Request your website</h3>
+            </section> --}}
+                <h3>Request your website</h3>
+                <form class="request-form" action="/dashboard" method="post">
+                    <label for="title">Title</label>
+                    <input class="title" type="text" name="title" placeholder="Title">
+                    
+                    <label for="details">Details of idea</label>
+                    <textarea class="details" name="details" cols="15" rows="5" required="true"></textarea>
+                    
+                    <label for="colors">Color Scheme</label>
+                    <input name="colors" placeholder="Any colors in mind?" type="text">
 
-                <label for="inspirations">Inspirational Designs</label>
-                <input name="inspirations" placeholder="And inspirational designs, other websites?" type="text">
+                    <label for="inspirations">Inspirational Designs</label>
+                    <input name="inspirations" placeholder="And inspirational designs, other websites?" type="text">
 
-                <label for="comments">Additional Comments</label>
-                <input name="comments" placeholder="Additional Comments/Questions" type="text">
+                    <label for="comments">Additional Comments</label>
+                    <input name="comments" placeholder="Additional Comments/Questions" type="text">
 
-                <label for="timeline">Timeline</label>
-                <input type="text" name="timeline" placeholder="When would you like this done by?">
+                    <label for="timeline">Timeline</label>
+                    <input type="text" name="timeline" placeholder="When would you like this done by?">
 
-                <label for="budget">Budget</label>
-                <input type="text" name="budget" placeholder="What's your budget?">
+                    <label for="budget">Budget</label>
+                    <input type="text" name="budget" placeholder="What's your budget?">
 
-                <input type="hidden" name="clientId" value="{{ authenticatedUser._id }}"> 
+                    <input type="hidden" name="clientId" value="{{ authenticatedUser._id }}"> 
 
-                <button class="white-btn" type="submit">Submit</button>
-            </form> 
-        </main>   
+                    <button class="white-btn" type="submit">Submit</button>
+                </form> 
+            </main>   
         {{else}}
             <main class="client-dashboard">
                 <h1 class="welcome">Welcome, {{authenticatedUser.fullName}}</h1>
@@ -52,13 +52,13 @@
                     Your dashboard was made to communicate important website updates with you and
                     collect your feedback as well as ensure payments process successfully.
                 </p>
+                <h4>{{project.title}}</h4>
                 <div id="myProgress">
                     <div id="myBar"></div>
                 </div>
                 <div class="project-tracker">
                     <h3>Current Item being worked on:</h3>
-                    <h4>{{project.title}}</h4>
-                    {{!-- <p></p> --}}
+                    <h4>{{update.title}}</h4>
                 </div>
                 <div class="feedback-box">
                     <h4>Send us your feedback on this update:</h4>

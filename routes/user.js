@@ -69,7 +69,12 @@ router.get('/dashboard', function(req, res, next) {
     if (req.user.isAdmin == false && req.user.projects) {
         Project.findById(req.user.projects)
         .then(project => {
-            res.render('dashboard', { project } )
+            const updateId = project.updates[project.updates.length-1]
+            Update.findById(updateId)
+            .then(update => {
+                // console.log("update:", update);
+                res.render('dashboard', { project, update } )
+            })
         })
         .catch(err => {
             console.log(err);
@@ -101,21 +106,21 @@ router.get('/dashboard/users/:id', (req,res) => {
 
 router.post('/dashboard/users/:clientId', (req,res) => {
     title = req.body.title;
-    console.log("title:", title);
+    // console.log("title:", title);
     clientId = req.params.clientId;
-    console.log("clientId:", clientId);    
+    // console.log("clientId:", clientId);    
     Project.findOne( {clientId: clientId} )
     .then((project) => {
-        console.log("project:", project);
+        // console.log("project:", project);
         const update = new Update();
-        console.log("update:", update); 
+        // console.log("update:", update); 
         update.title = title;
-        console.log("update updated:", update);
+        // console.log("update updated:", update);
         update.save();
-        console.log("project:", project);
-        console.log("project updates:", project.updates);
+        // console.log("project:", project);
+        // console.log("project updates:", project.updates);
         project.updates.push(update._id);
-        console.log("project updates:", project.updates)
+        // console.log("project updates:", project.updates)
         project.save()
         res.redirect('/dashboard');
     }).catch(err => {
