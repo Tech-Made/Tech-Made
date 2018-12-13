@@ -5,7 +5,7 @@ const User = require("../models/user");
 
 router.route('/login')
 
-    get('/login', (req,res) => {
+    .get('/login', (req,res) => {
         // Checks if there's a a user and if that user's an admin.
         const currentUser = req.user;
         if (currentUser) {
@@ -55,7 +55,7 @@ router.route('/login')
 
 router.route('/start')
 
-    get('/start', function(req, res, next) {
+    .get('/start', function(req, res, next) {
         if (req.user) {
             res.redirect('dashboard');
         } else {
@@ -64,7 +64,7 @@ router.route('/start')
     })
 
     // SIGN UP POST
-    post("/start", (req, res) => {
+    .post("/start", (req, res) => {
         const username = req.body.username;
         // const email = req.body.email;
         User.findOne({username}, "username").then(user => {
