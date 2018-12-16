@@ -2,87 +2,79 @@
 {{> loggedin-header }}
 {{#if authenticatedUser.isAdmin}}
     <h1>Admin Dashboard</h1>
-    <h3>Clients</h3>
-    <ul>
-        {{#each client}}
-        <input type="hidden" name="clientId" value="{{ this._id }}"> 
-        <li><a href="/dashboard/users/{{this._id}}">{{this.fullName}}</a></li>
-        {{/each}}
-    </ul>
+    <button><a href="/dashboard/clients">View Clients</a></button>
 {{else}}
-        {{!-- i think this should be a post to request route honestly not too sure! --}}
-        {{!-- hh > if user.stage == 0 --}}
-        {{#unless authenticatedUser.projects}}
-            <main class="initial-contact-form">
-            {{!-- <section class="top">
-                <h3>Request your website</h3>
-            </section> --}}
-                <h3>Request your website</h3>
-                <form class="request-form" action="/dashboard" method="post">
-                    <label for="title">Title</label>
-                    <input class="title" type="text" name="title" placeholder="Title">
-                    
-                    <label for="details">Details of idea</label>
-                    <textarea class="details" name="details" cols="15" rows="5" required="true"></textarea>
-                    
-                    <label for="colors">Color Scheme</label>
-                    <input name="colors" placeholder="Any colors in mind?" type="text">
+    {{#unless authenticatedUser.projects}}
+        <main class="initial-contact-form">
+        {{!-- <section class="top">
+            <h3>Request your website</h3>
+        </section> --}}
+            <h3>Request your website</h3>
+            <form class="request-form" action="/dashboard" method="post">
+                <label for="title">Title</label>
+                <input class="title" type="text" name="title" placeholder="Title">
+                
+                <label for="details">Details of idea</label>
+                <textarea class="details" name="details" cols="15" rows="5" required="true"></textarea>
+                
+                <label for="colors">Color Scheme</label>
+                <input name="colors" placeholder="Any colors in mind?" type="text">
 
-                    <label for="inspirations">Inspirational Designs</label>
-                    <input name="inspirations" placeholder="And inspirational designs, other websites?" type="text">
+                <label for="inspirations">Inspirational Designs</label>
+                <input name="inspirations" placeholder="And inspirational designs, other websites?" type="text">
 
-                    <label for="comments">Additional Comments</label>
-                    <input name="comments" placeholder="Additional Comments/Questions" type="text">
+                <label for="comments">Additional Comments</label>
+                <input name="comments" placeholder="Additional Comments/Questions" type="text">
 
-                    <label for="timeline">Timeline</label>
-                    <input type="text" name="timeline" placeholder="When would you like this done by?">
+                <label for="timeline">Timeline</label>
+                <input type="text" name="timeline" placeholder="When would you like this done by?">
 
-                    <label for="budget">Budget</label>
-                    <input type="text" name="budget" placeholder="What's your budget?">
+                <label for="budget">Budget</label>
+                <input type="text" name="budget" placeholder="What's your budget?">
 
-                    <input type="hidden" name="clientId" value="{{ authenticatedUser._id }}"> 
+                <input type="hidden" name="clientId" value="{{ authenticatedUser._id }}"> 
 
-                    <button class="white-btn" type="submit">Submit</button>
-                </form> 
-            </main>   
-        {{else}}
-            <main class="client-dashboard">
-                <h1 class="welcome">Welcome, {{authenticatedUser.fullName}}</h1>
-                <p class="description">
-                    Your dashboard was made to communicate important website updates with you and
-                    collect your feedback as well as ensure payments process successfully.
-                </p>
-                <h4>{{project.title}}</h4>
-                <div id="myProgress">
-                    <div id="myBar"></div>
-                </div>
-                <div class="project-tracker">
-                    <h3>Current Item being worked on:</h3>
-                    <h4>{{update.title}}</h4>
-                </div>
-                <div class="feedback-box">
-                    <h4>Send us your feedback on this update:</h4>
-                    <form class="feedback-form" action="/dashboard/{{update._id}}/feedback" method="post">
-                        <textarea name="feedback" id="" cols="30" rows="10"></textarea>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-                <style>
-                    #myProgress {
-                        width: 50%;
-                        background-color: #ffffff;
-                    }
+                <button class="white-btn" type="submit">Submit</button>
+            </form> 
+        </main>  
+        {{> basic-footer }} 
+    {{else}}
+        <main class="client-dashboard">
+            <h1 class="welcome">Welcome, {{authenticatedUser.fullName}}</h1>
+            <p class="description">
+                Your dashboard was made to communicate important website updates with you and
+                collect your feedback as well as ensure payments process successfully.
+            </p>
+            <h4>{{project.title}}</h4>
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+            <div class="project-tracker">
+                <h3>Current Item being worked on:</h3>
+                <h4>{{update.title}}</h4>
+            </div>
+            <div class="feedback-box">
+                <h4>Send us your feedback on this update:</h4>
+                <form class="feedback-form" action="/dashboard/{{update._id}}/feedback" method="post">
+                    <textarea name="feedback" id="" cols="30" rows="10"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <style>
+                #myProgress {
+                    width: 50%;
+                    background-color: #ffffff;
+                }
 
-                    #myBar {
-                        width: {{project.projectPercentage}}%;
-                        height: 30px;
-                        background-color: green;
-                    }
-                </style>
-            </main>
-        {{/unless}}
+                #myBar {
+                    width: {{project.projectPercentage}}%;
+                    height: 30px;
+                    background-color: green;
+                }
+            </style>
+        </main>
+        {{> basic-footer }}
+    {{/unless}}
 {{/if}}
 
 {{> scripts }}
-
-{{> basic-footer }}

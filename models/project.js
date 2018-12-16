@@ -16,7 +16,7 @@ const ProjectSchema = new Schema({
     projectPercentage: {type: Number, default: 5},
     clientId: { type: Schema.Types.ObjectId, ref: "User" },
     requested: {type: Boolean, default: false},
-    updates : { type: Array, default: null }
+    updates : [{ type: Schema.Types.ObjectId, ref: 'Update', required: false }]
 });
 
 ProjectSchema.pre("save", function(next) {

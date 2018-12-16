@@ -1,0 +1,18 @@
+.admin-client-view {
+    h2 {
+        text-align: center;
+        // margin: 0 auto;
+        // display: block;
+    }
+    .page-forms {
+        display: flex;
+        justify-content: space-between;
+    }
+    .new-update {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

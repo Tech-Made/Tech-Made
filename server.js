@@ -51,6 +51,7 @@ const redirectToLogin = require('./middleware/redirectToLogin');
 
 // Create routers for every route in app
 const userRouter = require('./routes/user');
+const adminRouter = require('./routes/admin');
 const projectRouter = require('./routes/project');
 
 // Tell app to use each of these Routers and Middleware
@@ -59,6 +60,7 @@ app.use(checkAuth);
 app.use('/dashboard', redirectToLogin);
 app.use(userRouter);
 app.use(projectRouter);
+app.use(adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

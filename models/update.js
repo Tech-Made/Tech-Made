@@ -5,7 +5,8 @@ const UpdateSchema = new Schema({
     createdAt: { type: Date },
     updatedAt: { type: Date },
     title: { type: String, required: true },
-    // details: { type: String, required: true },
+    details: { type: String, required: true },
+    image: {type: String, required: true},
     feedback: { type: Array}
 });
 

@@ -1,10 +1,28 @@
-<main class="client">
+<main class="admin-client-view">
     <h2>{{client.fullName}}</h2>
-    <form action="/dashboard/users/{{client._id}}" method="post">
-        <label for="title">Update:</label>
-        <input type="text" name="title">
-        <label for="projectPercentage">Percent Completed</label>
-        <input type="number" name="projectPercentage">
-        <button type="submit">Send Update</button>
-    </form>
+    <section class="page-forms">
+        <section class="unresolved-feedbcak">
+
+        </section>
+        <section class="new-update">
+            <form action="/dashboard/clients/{{client._id}}" method="post">
+                <label for="title">Update:</label>
+                <input type="text" name="title">
+                <label for="details">Details:</label>        
+                <input type="text" name="details">
+                <label for="title">Image:</label>     
+                <input type="file" name="image" id="">   
+                {{!-- <input type="image" src="" alt=""> --}}
+                <label for="projectPercentage">Percent Completed</label>
+                <input type="number" name="projectPercentage">
+                <button type="submit">Send Update</button>
+            </form>
+        </section>
+        <section class="updates">
+            {{#each project.updates}}            
+                <h1>{{this.title}}</h1>
+            {{/each}}
+        </section>
+    </section>
+
 </main>

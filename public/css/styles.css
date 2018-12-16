@@ -57,6 +57,8 @@
       .login-page form input:-webkit-autofill {
         -webkit-text-fill-color: #dbdbdb;
         transition: background-color 5000s ease-in-out 0s; }
+      .login-page form .new-account-txt {
+        color: #ffffff; }
     .login-page button {
       float: right; }
     .login-page button > a {
@@ -169,6 +171,24 @@
 
 .start-link {
   color: #ffffff; }
+
+@media (min-width: 310px) {
+  .admin-dashboard-clients {
+    text-align: center; }
+    .admin-dashboard-clients ul {
+      list-style: none; }
+    .admin-dashboard-clients ul > li {
+      font-size: 1.2em; } }
+.admin-client-view h2 {
+  text-align: center; }
+.admin-client-view .page-forms {
+  display: flex;
+  justify-content: space-between; }
+.admin-client-view .new-update {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 @media (min-width: 310px) {
   .initial-contact-form {
