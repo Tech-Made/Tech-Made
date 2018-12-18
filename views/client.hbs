@@ -21,6 +21,10 @@
             {{#each project.updates}}            
                 <h1>{{this.title}}</h1>
                 <p>{{this.details}}</p>
+                <p><strong>Client feedback:</strong></p>
+                {{#each this.feedback}}
+                    <p>{{this.feedback}}</p>
+                {{/each}}
             {{/each}}
         </section>
 </main>

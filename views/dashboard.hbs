@@ -62,10 +62,14 @@
             {{else}}
                 <div class="feedback-box">
                     <h6>Send us your feedback on this update:</h6>
-                    <form class="feedback-form" action="/dashboard/{{update._id}}/feedback" method="post">
+                    <form class="feedback-form" action="/dashboard/{{latestUpdate._id}}/feedback" method="post">
                         <textarea name="feedback" id="" cols="30" rows="10"></textarea>
                         <button type="submit">Submit</button>
                     </form>
+                    <p>Your other feedback:</p>
+                    {{#each latestUpdate.feedback}}
+                        <p>{{this.feedback}}</p>
+                    {{/each}}
                 </div>
                 <section class="previous-updates">
                     {{#each project.updates}}
@@ -76,6 +80,10 @@
                             <textarea name="feedback" id="" cols="30" rows="10"></textarea>
                             <button type="submit">Submit</button>
                         </form>
+                        {{#each this.feedback}}
+                            <p>Youre other feedback:</p>
+                            <p>{{this.feedback}}</p>
+                        {{/each}}
                     {{/each}}
                 </section>
             {{/if}}
