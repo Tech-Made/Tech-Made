@@ -31,54 +31,22 @@ router.get('/dashboard/clients/:id', (req,res) => {
         console.log(err);
     })
 });
-    // OLD CODE DUMB
-                // for (let i = 0; i < project.updates.length; i++) {
-            //     console.log("updateId", project.updates[i]);            
-            //     Update.findById(project.updates[i]).then((update) => {
-            //         console.log("Update Object Found:", update);
-            //     }).catch(err => {
-            //         console.log(err);
-            //     });
-                    // append into an empty dictionary - key: update._id value: (attribute: data, attribute: data, etc)
-                    // updatesDict.push(update._id = [update.title, update.details, update,image]);
-                    // console.log("UPDATES DICTIONARY:",  updatesDict);
-                // })
-    // res.render('client', {client, updatesDict} );
 
 // ADMIN POST UPDATE TO USER
 router.post('/dashboard/clients/:clientId', (req,res) => {
-    console.log("posting");
-    
-    // grab inputs from update form
-
-    title = req.body.title;
     projectPercentage = req.body.projectPercentage;
-    image = req.body.image;
-    details = req.body.details;
-    clientId = req.params.clientId;
-    console.log("got values");
-    
     // find the specific project by the clientId attribute in Project model
     Project.findOne( {clientId: clientId} )
     .then((project) => {
-        // take a look a the project we found
-        // console.log("project:", project);
-        
         // create a new empty update and give it's values, then save it to mongo db
-        const update = new Update();
-        //TODO: Refactor code to insert req.body in the update.
-        update.title = title;
-        update.details = details;
-        update.image = image;
-        update.save();
-        console.log("saved update:", update);
+        const update = new Update(req.body);
+        update.save()
         
         // update the project with the new project %, push the update id to updates array and save project
         project.projectPercentage = projectPercentage;
         project.updates.push(update._id);
         project.save()
-        console.log("updated project:", project);
-        res.redirect('/dashboard');
+        res.redirect('/dashboard/clients/'+req.params.clientId);
     }).catch(err => {
         console.log(err);
     });

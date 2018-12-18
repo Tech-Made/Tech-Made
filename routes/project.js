@@ -17,24 +17,19 @@ router.post('/dashboard', function(req, res, next) {
 
 // GET DASHBOARD FOR ADMIN OR CLIENT
 router.get('/dashboard', function(req, res, next) {
+    console.log("REQ.USER:", req.user);
     if (req.user.isAdmin == false && req.user.projects.length > 0) {
-        Project.findById(req.user.projects)
+        Project.findById(req.user.projects).populate('updates')
         .then(project => {
-            console.log("PROJECT UPDATE HERE:", project.updates);
-            if (project.updates.length != 0) {
-                console.log("project update ain't 0");
-                const updateId = project.updates[project.updates.length-1]
-                Update.findById(updateId)
-                .then(update => {
-                    // console.log("update:", update);
-                    res.render('dashboard', { project, update } )
-                })
+            if (project.updates.length > 0) {
+                console.log("project:", project);
+                const latestUpdate = project.updates[project.updates.length-1];
+                res.render('dashboard', { project, latestUpdate } );                
+            } else {
+                const underReviewStill = true;
+                res.render('dashboard', { project, underReviewStill} )
             }
-            else {
-                res.render('dashboard', { project } )
-            }
-        })
-        .catch(err => {
+        }).catch(err => {
             console.log(err);
         })
     }

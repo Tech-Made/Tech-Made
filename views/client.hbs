@@ -1,9 +1,8 @@
 <main class="admin-client-view">
     <h2>{{client.fullName}}</h2>
-    <section class="page-forms">
-        <section class="unresolved-feedbcak">
+        {{!-- <section class="unresolved-feedbcak">
 
-        </section>
+        </section> --}}
         <section class="new-update">
             <form action="/dashboard/clients/{{client._id}}" method="post">
                 <label for="title">Update:</label>
@@ -21,8 +20,7 @@
         <section class="updates">
             {{#each project.updates}}            
                 <h1>{{this.title}}</h1>
+                <p>{{this.details}}</p>
             {{/each}}
         </section>
-    </section>
-
 </main>

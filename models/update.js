@@ -7,7 +7,10 @@ const UpdateSchema = new Schema({
     title: { type: String, required: true },
     details: { type: String, required: true },
     image: {type: String, required: true},
-    feedback: { type: Array}
+    feedback: { type: Array},
+    feedbackResolved : {type: Array, required: 0}
+    // feedback : [{ type: Schema.Types.ObjectId, ref: 'Feedback', required: false }]
+
 });
 
 UpdateSchema.pre("save", function(next) {
