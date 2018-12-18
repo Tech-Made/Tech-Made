@@ -2,6 +2,9 @@ const router = require('express').Router();
 const User = require("../models/user");
 const Project = require("../models/project");
 const Update = require("../models/update");
+// Set your secret key: remember to change this to your live secret key in production
+// See your keys here: https://dashboard.stripe.com/account/apikeys
+var stripe = require("stripe")("sk_test_CKhY3B72JlPjNAM0S8MmQscw");
 
 
 // POST A NEW WEBSITE REQUEST FROM NEW CLIENT DASHBOARD 
@@ -17,12 +20,10 @@ router.post('/dashboard', function(req, res, next) {
 
 // GET DASHBOARD FOR ADMIN OR CLIENT
 router.get('/dashboard', function(req, res, next) {
-    console.log("REQ.USER:", req.user);
     if (req.user.isAdmin == false && req.user.projects.length > 0) {
         Project.findById(req.user.projects).populate('updates')
         .then(project => {
             if (project.updates.length > 0) {
-                console.log("project:", project);
                 const latestUpdate = project.updates[project.updates.length-1];
                 res.render('dashboard', { project, latestUpdate } );                
             } else {
@@ -56,6 +57,39 @@ router.post('/dashboard/:updateId/feedback', (req,res) => {
     }).catch(err => {
         console.log(err);
         
+    })
+});
+
+// CLIENT CHARGE
+router.post('/dashboard/:projectId/charge', (req, res, next) => {
+    console.log("IN THIS ROUTE");
+    
+    // Token is created using Checkout or Elements!
+    // Get the payment token ID submitted by the form:
+    const token = req.body.stripeToken; // Using Express
+    Project.findById(req.params.projectId).then((project) => {
+        console.log("found project");
+        console.log("paymentsDue:", project.paymentsDue[0]);
+        
+        const charge = stripe.charges.create({
+            amount: project.paymentsDue[0],
+            currency: 'usd',
+            description: 'Tech Made charge',
+            source: token,
+        })
+        console.log("charge successful.");
+        // , function(err, charge) { 
+        //     if(err & err.type === "StripeCardError") {
+        //         console.log("Your card was declined.");
+        //     }
+        
+        project.paymentsCompleted.push(project.paymentsDue[0]);
+        
+        project.paymentsDue = [];
+        project.save();
+        res.redirect('/dashboard');
+    }).catch((err) => {
+        console.log(err);
     })
 });
 

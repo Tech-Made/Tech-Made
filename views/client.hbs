@@ -14,10 +14,16 @@
                 {{!-- <input type="image" src="" alt=""> --}}
                 <label for="projectPercentage">Percent Completed</label>
                 <input type="number" name="projectPercentage">
+                <label for="paymentsDue">Payments Due</label>
+                <input name="paymentsDue" type="text">
                 <button type="submit">Send Update</button>
             </form>
         </section>
         <section class="updates">
+            <h5>Project Details</h5>
+            <p>{{project.title}}</p>
+            <p><strong>Payments Due: </strong>{{project.paymentsDue}}</p>
+            <p><strong>Payments Completed: </strong>{{project.paymentsCompleted}}</p>
             {{#each project.updates}}            
                 <h1>{{this.title}}</h1>
                 <p>{{this.details}}</p>

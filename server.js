@@ -5,6 +5,7 @@ const express = require('express');
 // express-validator is a wrapper around validator.js that validates and sanitizes string inputs. In production, your users will try to type in all kinds of nonsense into your forms --- even things your site wasn't intended to deal with! express-validator plugs into the Express.js ecosystem and helps keep you and your code safe.
 const expressValidator = require('express-validator');
 // Essentially, body-parser is a necessary middleware to communicate with your POST requests.
+
 const bodyParser = require('body-parser')
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -14,7 +15,6 @@ const app = express();
 // Use Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 // Add after body parser initialization!
 app.use(expressValidator());
 

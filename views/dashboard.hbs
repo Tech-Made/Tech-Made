@@ -45,6 +45,23 @@
                 Your dashboard was made to communicate important website updates with you and
                 collect your feedback as well as ensure payments process successfully.
             </p>
+            {{#if project.paymentsDue}}
+                <h1 >Please submit your payment of ${{project.paymentsDue}}</h1>
+                {{!-- <input type="hidden" id="chargeAmount" value={{project.paymentsDue}}> --}}
+                <form action="/dashboard/{{project._id}}/charge" method="POST">
+                <script src="https://checkout.stripe.com/checkout.js"></script>
+                    <script
+                        src="https://checkout.stripe.com/checkout.js"
+                        class="stripe-button"
+                        data-key="pk_test_W63C5PiHdw3FSQmvVIrgWo6c"	
+                        data-amount="{{project.paymentsDue}}00"
+                        data-name="Tech made"
+                        data-description="Tech Made website charge"
+                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                        data-locale="auto">
+                    </script>
+                </form>
+            {{/if}}
             <h4>{{project.title}}</h4>
             <div id="myProgress">
                 <div id="myBar"></div>

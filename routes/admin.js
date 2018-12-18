@@ -35,6 +35,7 @@ router.get('/dashboard/clients/:id', (req,res) => {
 // ADMIN POST UPDATE TO USER
 router.post('/dashboard/clients/:clientId', (req,res) => {
     projectPercentage = req.body.projectPercentage;
+    paymentsDue = req.body.paymentsDue;
     // find the specific project by the clientId attribute in Project model
     Project.findOne( {clientId: clientId} )
     .then((project) => {
@@ -45,6 +46,7 @@ router.post('/dashboard/clients/:clientId', (req,res) => {
         // update the project with the new project %, push the update id to updates array and save project
         project.projectPercentage = projectPercentage;
         project.updates.push(update._id);
+        project.paymentsDue.push(paymentsDue);
         project.save()
         res.redirect('/dashboard/clients/'+req.params.clientId);
     }).catch(err => {

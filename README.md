@@ -1,5 +1,20 @@
 # Tech-Made
 
+## Sprint 4
+- [ ] Set up payment system (How will this work?)
+    - Clients pay half the price upfront and half afterward before we deploy the site live.
+    - So once we send the first update (Website Acceptance is always the first update).
+    - Then we show the users a section at the top to complete their payments.
+        - Admin should be able to request half the agreed payment to the user that will show in their dashboard. Then it will dissapear.
+        - Payment panel will show up again when we charge the user again.
+        - They should also have a tab to see their transactions.
+    - How will this work in code?
+        - In the admin update, admin can send client a charge that we enter in - this saves in the clients paymentsDue array.
+        - On the client view, if they have a value in their paymentsDue array, it will show on the front end.
+        - Once the client completes the payment, the value is removed and added to paymentsCompleted array.
+- [X] Users can recieve multiple updates that admin send to them
+- [X] Clients come give feedback on any update
+
 ## Sprint 3
 
 ### To Do's:
