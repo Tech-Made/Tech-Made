@@ -51,10 +51,11 @@
             <section class="project-section">
                 <h1>{{project.title}}</h1>
                 {{#if project.paymentsDue}}
-                    <h1 >Please submit your payment of ${{project.paymentsDue}}</h1>
+                    <h3>Please submit your payment of ${{project.paymentsDue}}</h3>
                     {{!-- <input type="hidden" id="chargeAmount" value={{project.paymentsDue}}> --}}
-                    <form action="/dashboard/{{project._id}}/charge" method="POST">
                     <script src="https://checkout.stripe.com/checkout.js"></script>
+
+                    <form class="stripe-form" action="/dashboard/{{project._id}}/charge" method="POST">
                         <script
                             src="https://checkout.stripe.com/checkout.js"
                             class="stripe-button"
@@ -82,37 +83,123 @@
                     {{#if underReviewStill}}
                     {{else}}
                     <div class="feedback-box">
-                        <button class="feedback-btn">Send Feedback</button>
-                        {{!-- <form class="feedback-form" action="/dashboard/{{latestUpdate._id}}/feedback" method="post">
-                            <textarea name="feedback" id="" cols="30" rows="10"></textarea>
-                            <button type="submit">Submit</button>
-                        </form> --}}
-                        
-                        
-                        <p class="latest-feedback-view">Your Feedback</p>
- 
-                        <div class="current-feedback-view-box">
-                            {{#each latestUpdate.feedback}}
-                                <p>{{this.feedback}}</p>
-                            {{/each}}
+                        <button id="currentFeedbackBtn" class="feedback-btn">Send Feedback</button>
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div class="form-feedback">
+                                    <form class="feedback-form" action="/dashboard/{{latestUpdate._id}}/feedback" method="post">
+                                        <textarea name="feedback" id="" cols="30" rows="10"></textarea>
+                                        <button type="submit">Submit</button>
+                                    </form>
+                                    <div class="current-feedback-view-box">
+                                        <p class="latest-feedback-view"><strong><u>Your Feedback</u></strong></p>
+                                        {{#each latestUpdate.feedback}}
+                                            <p>{{this.feedback}}</p>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    <script>
+                        // Get the modal
+                        var modal = document.getElementById('myModal');
+
+                        // Get the button that opens the modal
+                        var currentFeedbackBtn = document.getElementById("currentFeedbackBtn");
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+
+                        // When the user clicks the button, open the modal 
+                        currentFeedbackBtn.onclick = function() {
+                            modal.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                            modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
                     </div>
                 </div>
-                {{!-- <section class="previous-updates">
+                <h6>View Previous Updates</h6>
+                <i class="fas fa-arrow-circle-down"></i>
+                <section class="previous-updates">
                     {{#each project.updates}}
-                        <h6>{{this.title}}</h6>
-                        <p>{{this.details}}</p>
-                        <h6>Send us your feedback on this update:</h6>
-                        <form class="feedback-form" action="/dashboard/{{this._id}}/feedback" method="post">
-                            <textarea name="feedback" id="" cols="30" rows="10"></textarea>
-                            <button type="submit">Submit</button>
-                        </form>
-                        {{#each this.feedback}}
-                            <p>Youre other feedback:</p>
-                            <p>{{this.feedback}}</p>
-                        {{/each}}
+                        <div class="previous-feedback-box">
+                            <h6>{{this.title}}</h6>
+                            <p>{{this.details}}</p>
+                            <button id="oldDeedbackBtn{{this._id}}">View/Send Feedback</button>
+                            
+                        <div id="oldFeedbackModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div class="form-feedback">
+                                    <form class="feedback-form" action="/dashboard/{{this._id}}/feedback" method="post">
+                                        <textarea name="feedback" id="" cols="30" rows="10"></textarea>
+                                        <button type="submit">Submit</button>
+                                    </form>
+                                    <div class="current-feedback-view-box">
+                                        <p class="latest-feedback-view"><strong><u>Your Feedback</u></strong></p>
+                                        {{#each this.feedback}}
+                                            <p>{{this.feedback}}</p>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            {{!-- <form class="feedback-form" action="/dashboard/{{this._id}}/feedback" method="post">
+                                <textarea name="feedback" id="" cols="30" rows="10"></textarea>
+                                <button type="submit">Submit</button>
+                            </form> --}}
+                            {{!-- {{#each this.feedback}}
+                                <p>Your feedback on this item:</p>
+                                <p>{{this.feedback}}</p>
+                            {{/each}} --}}
+                            
+                        <script>
+                                // Get the modal
+                                var oldFeedbackModal = document.getElementById('oldFeedbackModal');
+
+                                // Get the button that opens the modal
+                                var oldFeedbackBtn = document.getElementById("oldDeedbackBtn{{this._id}}");
+
+                                // Get the <span> element that closes the modal
+                                var span = document.getElementsByClassName("close")[0];
+
+                                // When the user clicks the button, open the modal 
+                                oldFeedbackBtn.onclick = function() {
+                                    oldFeedbackModal.style.display = "block";
+                                }
+
+                                // When the user clicks on <span> (x), close the modal
+                                span.onclick = function() {
+                                    oldFeedbackModal.style.display = "none";
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == oldFeedbackModal) {
+                                        oldFeedbackModal.style.display = "none";
+                                    }
+                                }
+                        </script>
+
+                        </div>
                     {{/each}}
-                </section> --}}
+                </section>
                 {{/if}}
                 <style>
                     #myProgress {
