@@ -6,14 +6,14 @@
         <section class="new-update">
             <form action="/dashboard/clients/{{client._id}}" method="post">
                 <label for="title">Update:</label>
-                <input type="text" name="title">
+                <input required type="text" name="title">
                 <label for="details">Details:</label>        
-                <input type="text" name="details">
+                <input required type="text" name="details">
                 <label for="title">Image:</label>     
                 <input type="file" name="image" id="">   
                 {{!-- <input type="image" src="" alt=""> --}}
                 <label for="projectPercentage">Percent Completed</label>
-                <input type="number" name="projectPercentage">
+                <input required type="number" name="projectPercentage">
                 <label for="paymentsDue">Payments Due</label>
                 <input name="paymentsDue" type="text">
                 <button type="submit">Send Update</button>

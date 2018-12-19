@@ -34,6 +34,7 @@ router.get('/dashboard/clients/:id', (req,res) => {
 
 // ADMIN POST UPDATE TO USER
 router.post('/dashboard/clients/:clientId', (req,res) => {
+    console.log("posting update");
     projectPercentage = req.body.projectPercentage;
     paymentsDue = req.body.paymentsDue;
     // find the specific project by the clientId attribute in Project model
@@ -42,12 +43,15 @@ router.post('/dashboard/clients/:clientId', (req,res) => {
         // create a new empty update and give it's values, then save it to mongo db
         const update = new Update(req.body);
         update.save()
+        console.log("update:", update);
         
         // update the project with the new project %, push the update id to updates array and save project
         project.projectPercentage = projectPercentage;
         project.updates.push(update._id);
         project.paymentsDue.push(paymentsDue);
         project.save()
+        console.log("project:", project);
+        
         res.redirect('/dashboard/clients/'+req.params.clientId);
     }).catch(err => {
         console.log(err);

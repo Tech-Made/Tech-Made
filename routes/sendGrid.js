@@ -16,18 +16,18 @@ module.exports = (function() {
             });
         });
     }
-    function sendWebsiteAcceptanceEmail(user) {
-        return new Promise(function(resolve,reject) { 
-            hb.render('views/emails/acceptance.hbs', {user} ).then(html => {
-                sgMail.send({
-                    to: user.email,
-                    from: 'team@techmade.co',
-                    subject: 'Welcome to Tech Made!',
-                    html: html
-                });
-            });
-        });
-    }
+    // function sendWebsiteAcceptanceEmail(user) {
+    //     return new Promise(function(resolve,reject) { 
+    //         hb.render('views/emails/acceptance.hbs', {user} ).then(html => {
+    //             sgMail.send({
+    //                 to: user.email,
+    //                 from: 'team@techmade.co',
+    //                 subject: 'Welcome to Tech Made!',
+    //                 html: html
+    //             });
+    //         });
+    //     });
+    // }
         //     if (emailSent) {
         //         resolve('Sent') //means we're fulfilling this promise
         //     } else {
@@ -35,8 +35,8 @@ module.exports = (function() {
         //     }
         // });
     return {
-        sendWelcomeEmail: sendWelcomeEmail,
-        sendWebsiteAcceptanceEmail : sendWebsiteAcceptanceEmail
+        sendWelcomeEmail: sendWelcomeEmail
+        // sendWebsiteAcceptanceEmail : sendWebsiteAcceptanceEmail
     }
 
 })();

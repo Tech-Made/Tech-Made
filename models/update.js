@@ -6,7 +6,7 @@ const UpdateSchema = new Schema ({
     updatedAt: { type: Date },
     title: { type: String, required: true },
     details: { type: String, required: true },
-    image: {type: String, required: true},
+    image: {type: String},
     feedback: { type: Array},
     feedbackResolved : {type: Array, required: 0}
     // feedback : [{ type: Schema.Types.ObjectId, ref: 'Feedback', required: false }]

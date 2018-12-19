@@ -239,18 +239,46 @@
   .initial-contact-form .request-form .details {
     width: 32em; }
 
-  .current-item > * {
-    padding: 0em 2em; }
-
-  .current-item {
+  .client-dashboard {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between; }
-    .current-item .project-tracker {
-      max-width: 40vw; }
-    .current-item .feedback-box {
+    flex-direction: row;
+    padding: 0;
+    justify-content: unset;
+    align-items: unset; }
+    .client-dashboard .profile-section {
       display: flex;
       flex-direction: column;
-      max-width: 40vw; } }
+      height: 100vh;
+      width: 17em;
+      position: -webkit-sticky;
+      /* Safari */
+      position: sticky;
+      top: 0;
+      background-color: #0C0C0C;
+      padding: 4em .8em 4em; }
+      .client-dashboard .profile-section .fas.fa-user-circle {
+        color: white;
+        font-size: 7em; }
+      .client-dashboard .profile-section h1 {
+        margin: 0.8em 0em 0.8em 0em;
+        font-size: 2.4rem; }
+      .client-dashboard .profile-section p {
+        margin: 0em 0em .5em 0em; }
+      .client-dashboard .profile-section button {
+        margin: 0 auto;
+        line-height: 0;
+        margin-top: .8em;
+        height: 3.8rem; }
+    .client-dashboard .project-section {
+      padding: 1em 3em 1em 3em;
+      margin: 0 auto; }
+      .client-dashboard .project-section #myProgress {
+        width: auto; }
+      .client-dashboard .project-section .current-item > * {
+        padding: 0em 2em; }
+      .client-dashboard .project-section .current-item .project-tracker {
+        max-width: 40vw; }
+      .client-dashboard .project-section .current-item .feedback-box .feedback-btn {
+        margin: 0 auto; } }
 
 /*# sourceMappingURL=styles.css.map */
