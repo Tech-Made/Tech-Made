@@ -67,21 +67,22 @@ router.post("/start", (req, res) => {
     User.findOne({username}, "username").then(user => {
         if(user) {
             return res.status(401).send({ message: "Account with this username already exists" });
-        }
+        } else {
+            const user = new User(req.body);
+            // console.log("user:", user);
+            SendGrid.sendWelcomeEmail(user);
+            user.save().then((user) => {
+                const token = jwt.sign({ _id: user._id, isAdmin: user.isAdmin }, process.env.SECRET, { expiresIn: "60 days" });
+                // set the cookie when someone signs up and logs in
+                res.cookie('nToken', token, { maxAge: 600000, httpOnly: true });
+                res.redirect("/dashboard");
+            }).catch(err => {
+                console.log(err.message);
+                return res.status(400).send({ err: err });
+            });
+        } // end else
     }).catch((err) => {
         console.log(err);
-    });
-    // Create User and JWT
-    const user = new User(req.body);
-    user.save().then((user) => {
-        SendGrid.sendWelcomeEmail(user);
-        const token = jwt.sign({ _id: user._id, isAdmin: user.isAdmin }, process.env.SECRET, { expiresIn: "60 days" });
-        // set the cookie when someone signs up and logs in
-        res.cookie('nToken', token, { maxAge: 600000, httpOnly: true });
-        res.redirect("/dashboard");
-    }).catch(err => {
-        console.log(err.message);
-        return res.status(400).send({ err: err });
     });
 });
 
