@@ -8,6 +8,7 @@
     "test-watch": "nodemon --exec 'npm test'"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "bcrypt": "^3.0.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -21,7 +22,8 @@
     "http-errors": "~1.6.2",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.14",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "stripe": "^6.19.0"
   },
   "description": "## Sprint 2",
   "main": "server.js",

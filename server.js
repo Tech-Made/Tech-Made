@@ -5,18 +5,16 @@ const express = require('express');
 // express-validator is a wrapper around validator.js that validates and sanitizes string inputs. In production, your users will try to type in all kinds of nonsense into your forms --- even things your site wasn't intended to deal with! express-validator plugs into the Express.js ecosystem and helps keep you and your code safe.
 const expressValidator = require('express-validator');
 // Essentially, body-parser is a necessary middleware to communicate with your POST requests.
+
 const bodyParser = require('body-parser')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-// const Handlebars = require('handlebars');
-// const HandlebarsIntl = require('handlebars-intl');
 const app = express();
 
 // Use Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 // Add after body parser initialization!
 app.use(expressValidator());
 
@@ -41,31 +39,28 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware is a function with access to the request object (req), the response object (res), and the next middleware in the application’s request-response cycle, commonly denoted by a variable named next.
-
 // Middleware can:
-
-// Execute any code.
-// Make changes to the request and the response objects.
-// End the request-response cycle.
-// Call the next middleware in the stack.
+  // Execute any code.
+  // Make changes to the request and the response objects.
+  // End the request-response cycle.
+  // Call the next middleware in the stack.
 
 // const errorHandling = require('./middleware/errorHandling');
 const checkAuth = require('./middleware/checkAuth');
 const redirectToLogin = require('./middleware/redirectToLogin');
-// app.use(require('./middleware/checkAuth'));
 
 // Create routers for every route in app
-const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
+const adminRouter = require('./routes/admin');
 const projectRouter = require('./routes/project');
 
 // Tell app to use each of these Routers and Middleware
 // app.use(errorHandling);
 app.use(checkAuth);
 app.use('/dashboard', redirectToLogin);
-app.use('/', indexRouter);
 app.use(userRouter);
 app.use(projectRouter);
+app.use(adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

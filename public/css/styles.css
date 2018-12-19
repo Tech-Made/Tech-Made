@@ -57,6 +57,8 @@
       .login-page form input:-webkit-autofill {
         -webkit-text-fill-color: #dbdbdb;
         transition: background-color 5000s ease-in-out 0s; }
+      .login-page form .new-account-txt {
+        color: #ffffff; }
     .login-page button {
       float: right; }
     .login-page button > a {
@@ -171,6 +173,24 @@
   color: #ffffff; }
 
 @media (min-width: 310px) {
+  .admin-dashboard-clients {
+    text-align: center; }
+    .admin-dashboard-clients ul {
+      list-style: none; }
+    .admin-dashboard-clients ul > li {
+      font-size: 1.2em; } }
+.admin-client-view h2 {
+  text-align: center; }
+.admin-client-view .page-forms {
+  display: flex;
+  justify-content: space-between; }
+.admin-client-view .new-update {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+@media (min-width: 310px) {
   .initial-contact-form {
     display: flex;
     flex-direction: column;
@@ -217,6 +237,181 @@
     width: 32em;
     height: 3.4em; }
   .initial-contact-form .request-form .details {
-    width: 32em; } }
+    width: 32em; }
+
+  .client-dashboard {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    justify-content: unset;
+    align-items: unset; }
+    .client-dashboard .profile-section {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 17em;
+      position: -webkit-sticky;
+      /* Safari */
+      position: sticky;
+      top: 0;
+      background-color: #0C0C0C;
+      padding: 4em .8em 4em; }
+      .client-dashboard .profile-section .fas.fa-user-circle {
+        color: white;
+        font-size: 7em; }
+      .client-dashboard .profile-section h1 {
+        margin: 0.8em 0em 0.8em 0em;
+        font-size: 2.4rem; }
+      .client-dashboard .profile-section p {
+        margin: 0em 0em .5em 0em; }
+      .client-dashboard .profile-section button {
+        margin: 0 auto;
+        line-height: 0;
+        margin-top: .8em;
+        height: 3.8rem; }
+    .client-dashboard .project-section {
+      padding: 1em 3em 1em 3em;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      max-width: 70vw; }
+      .client-dashboard .project-section h1 {
+        margin-top: 3rem; }
+      .client-dashboard .project-section h3 {
+        margin-top: 3rem; }
+      .client-dashboard .project-section .stripe-button-el span {
+        background-color: transparent; }
+      .client-dashboard .project-section #myProgress {
+        width: 90%; }
+      .client-dashboard .project-section .current-item .feedback-box {
+        /* The Modal (background) */ }
+        .client-dashboard .project-section .current-item .feedback-box .feedback-btn {
+          margin: 0 auto; }
+        .client-dashboard .project-section .current-item .feedback-box .modal {
+          display: none;
+          /* Hidden by default */
+          position: fixed;
+          /* Stay in place */
+          z-index: 1;
+          /* Sit on top */
+          padding-top: 100px;
+          /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%;
+          /* Full width */
+          height: 100%;
+          /* Full height */
+          overflow: auto;
+          /* Enable scroll if needed */
+          background-color: black;
+          /* Fallback color */
+          background-color: rgba(0, 0, 0, 0.4);
+          /* Black w/ opacity */
+          /* Modal Content */
+          /* The Close Button */ }
+          .client-dashboard .project-section .current-item .feedback-box .modal .modal-content {
+            background-color: #0C0C0C;
+            color: #ffffff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; }
+            .client-dashboard .project-section .current-item .feedback-box .modal .modal-content .form-feedback {
+              display: flex; }
+              .client-dashboard .project-section .current-item .feedback-box .modal .modal-content .form-feedback form {
+                width: 30vw; }
+              .client-dashboard .project-section .current-item .feedback-box .modal .modal-content .form-feedback .current-feedback-view-box {
+                text-align: left;
+                width: 30vw;
+                margin-left: 2em;
+                height: 36rem;
+                overflow-y: scroll; }
+                .client-dashboard .project-section .current-item .feedback-box .modal .modal-content .form-feedback .current-feedback-view-box p {
+                  margin-bottom: 1rem; }
+          .client-dashboard .project-section .current-item .feedback-box .modal .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold; }
+          .client-dashboard .project-section .current-item .feedback-box .modal .close:hover,
+          .client-dashboard .project-section .current-item .feedback-box .modal .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer; }
+      .client-dashboard .project-section .fa-arrow-circle-down {
+        font-size: 1.6em; }
+      .client-dashboard .project-section .fa-arrow-circle-down:hover {
+        color: #0C0C0C;
+        cursor: pointer;
+        -webkit-transition: color 500ms ease-out 1s;
+        -moz-transition: color 500ms ease-out 1s;
+        -o-transition: color 500ms ease-out 1s;
+        transition: color 500ms ease-out 1s; }
+      .client-dashboard .project-section .previous-updates {
+        display: grid;
+        grid-template-columns: 17em 17em 17em;
+        grid-template-rows: 20em 20em;
+        margin-top: 3em; }
+        .client-dashboard .project-section .previous-updates .previous-feedback-box {
+          background-color: #0C0C0C;
+          margin-left: .6em;
+          margin-left: .6em;
+          overflow-y: scroll;
+          /* The Modal (background) */ }
+          .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: black;
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            /* Modal Content */
+            /* The Close Button */ }
+            .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .modal-content {
+              background-color: #0C0C0C;
+              color: #ffffff;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%; }
+              .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .modal-content .form-feedback {
+                display: flex; }
+                .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .modal-content .form-feedback form {
+                  width: 30vw; }
+                .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .modal-content .form-feedback .current-feedback-view-box {
+                  text-align: left;
+                  width: 30vw;
+                  margin-left: 2em;
+                  height: 36rem;
+                  overflow-y: scroll; }
+                  .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .modal-content .form-feedback .current-feedback-view-box p {
+                    margin-bottom: 1rem; }
+            .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold; }
+            .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .close:hover,
+            .client-dashboard .project-section .previous-updates .previous-feedback-box #oldFeedbackModal .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer; } }
 
 /*# sourceMappingURL=styles.css.map */
