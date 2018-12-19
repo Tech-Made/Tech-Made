@@ -237,6 +237,20 @@
     width: 32em;
     height: 3.4em; }
   .initial-contact-form .request-form .details {
-    width: 32em; } }
+    width: 32em; }
+
+  .current-item > * {
+    padding: 0em 2em; }
+
+  .current-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; }
+    .current-item .project-tracker {
+      max-width: 40vw; }
+    .current-item .feedback-box {
+      display: flex;
+      flex-direction: column;
+      max-width: 40vw; } }
 
 /*# sourceMappingURL=styles.css.map */

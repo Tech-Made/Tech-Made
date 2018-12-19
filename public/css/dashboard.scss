@@ -68,6 +68,22 @@
             }
         }
     }
+    .current-item > * {
+        padding: 0em 2em;
+    }
+    .current-item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        .project-tracker {
+            max-width: 40vw;
+        }
+        .feedback-box {
+            display: flex;
+            flex-direction: column;
+            max-width: 40vw;
+        }
+    }
 }
 
 

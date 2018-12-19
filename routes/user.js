@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require("../models/user");
+const SendGrid = require('./sendGrid');
 
 router.get('/login', (req,res) => {
         // Checks if there's a a user and if that user's an admin.
@@ -61,29 +62,28 @@ router.get('/start', function(req, res, next) {
 
     // SIGN UP POST
 router.post("/start", (req, res) => {
-        const username = req.body.username;
-        // const email = req.body.email;
-        User.findOne({username}, "username").then(user => {
-            if(user) {
-                return res.status(401).send({ message: "Account with this username already exists" });
-            }
-        });
-        // Create User and JWT
-        const user = new User(req.body);
-        user.save().then((user) => {
-            const token = jwt.sign({ _id: user._id, isAdmin: user.isAdmin }, process.env.SECRET, { expiresIn: "60 days" });
-            console.log("token:", token);
-            // set the cookie when someone signs up and logs in
-            res.cookie('nToken', token, { maxAge: 600000, httpOnly: true });
-            console.log("new user:", user);
-            
-            res.redirect("/dashboard");
-        })
-        .catch(err => {
-            console.log(err.message);
-            return res.status(400).send({ err: err });
-        });
-})
+    const username = req.body.username;
+    // const email = req.body.email;
+    User.findOne({username}, "username").then(user => {
+        if(user) {
+            return res.status(401).send({ message: "Account with this username already exists" });
+        }
+    }).catch((err) => {
+        console.log(err);
+    });
+    // Create User and JWT
+    const user = new User(req.body);
+    user.save().then((user) => {
+        SendGrid.sendWelcomeEmail(user);
+        const token = jwt.sign({ _id: user._id, isAdmin: user.isAdmin }, process.env.SECRET, { expiresIn: "60 days" });
+        // set the cookie when someone signs up and logs in
+        res.cookie('nToken', token, { maxAge: 600000, httpOnly: true });
+        res.redirect("/dashboard");
+    }).catch(err => {
+        console.log(err.message);
+        return res.status(400).send({ err: err });
+    });
+});
 
 // LOGOUT
 router.get('/logout', (req, res) => {
