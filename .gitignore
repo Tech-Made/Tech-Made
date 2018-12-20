@@ -106,7 +106,7 @@ typings/
 
 
 # Send Grid
-sendgrid.env
+./sendgrid.env
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

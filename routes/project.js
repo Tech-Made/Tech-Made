@@ -4,6 +4,7 @@ const Project = require("../models/project");
 const Update = require("../models/update");
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
+const SendGrid = require('./sendGrid');
 var stripe = require("stripe")("sk_test_CKhY3B72JlPjNAM0S8MmQscw");
 
 
@@ -13,6 +14,7 @@ router.post('/dashboard', function(req, res, next) {
     project.save().then(() => {
         User.findByIdAndUpdate(req.user._id, { $push: { projects: project._id } })
         .then(user => {
+            SendGrid.sendWebsiteRequestEmail(user);
             res.redirect('/dashboard');
         });
     });

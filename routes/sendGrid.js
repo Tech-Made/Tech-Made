@@ -31,6 +31,18 @@ module.exports = (function() {
     }
     // function sendWebsiteAcceptanceEmail(user) {
     //     return new Promise(function(resolve,reject) { 
+    //         hb.render('views/emails/website-accepted.hbs', {user} ).then(html => {
+    //             sgMail.send({
+    //                 to: user.email,
+    //                 from: 'team@techmade.co',
+    //                 subject: 'Thanks for Requesting a Website!',
+    //                 html: html
+    //             });
+    //         });
+    //     });
+    // }
+    // function sendWebsiteAcceptanceEmail(user) {
+    //     return new Promise(function(resolve,reject) { 
     //         hb.render('views/emails/acceptance.hbs', {user} ).then(html => {
     //             sgMail.send({
     //                 to: user.email,
@@ -48,7 +60,8 @@ module.exports = (function() {
         //     }
         // });
     return {
-        sendWelcomeEmail: sendWelcomeEmail
+        sendWelcomeEmail: sendWelcomeEmail,
+        sendWebsiteRequestEmail : sendWebsiteRequestEmail,
         // sendWebsiteAcceptanceEmail : sendWebsiteAcceptanceEmail
     }
 

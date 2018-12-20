@@ -6,9 +6,6 @@
 {{else}}
     {{#unless authenticatedUser.projects}}
         <main class="initial-contact-form">
-            {{!-- <section class="top">
-                <h3>Request your website</h3>
-            </section> --}}
             <h3>Request your website</h3>
             <form class="request-form" action="/dashboard" method="post">
                 <label for="title">Title</label>
@@ -54,7 +51,6 @@
                     <h3>Please submit your payment of ${{project.paymentsDue}}</h3>
                     {{!-- <input type="hidden" id="chargeAmount" value={{project.paymentsDue}}> --}}
                     <script src="https://checkout.stripe.com/checkout.js"></script>
-
                     <form class="stripe-form" action="/dashboard/{{project._id}}/charge" method="POST">
                         <script
                             src="https://checkout.stripe.com/checkout.js"
@@ -103,33 +99,35 @@
                                 </div>
                             </div>
                         </div>
-                    <script>
-                        // Get the modal
-                        var modal = document.getElementById('myModal');
+                        <script>
+                            // Get the modal
+                            var modal = document.getElementById('myModal');
 
-                        // Get the button that opens the modal
-                        var currentFeedbackBtn = document.getElementById("currentFeedbackBtn");
+                            // Get the button that opens the modal
+                            var currentFeedbackBtn = document.getElementById("currentFeedbackBtn");
 
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
+                            // Get the <span> element that closes the modal
+                            var span = document.getElementsByClassName("close")[0];
+                            console.log("span:", span);
 
-                        // When the user clicks the button, open the modal 
-                        currentFeedbackBtn.onclick = function() {
-                            modal.style.display = "block";
-                        }
+                            // When the user clicks the button, open the modal 
+                            currentFeedbackBtn.onclick = function() {
+                                modal.style.display = "block";
+                            }
 
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                            modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                            if (event.target == modal) {
+                            // When the user clicks on <span> (x), close the modal
+                            span.onclick = function() {
+                                console.log("hit span")
                                 modal.style.display = "none";
                             }
-                        }
-                    </script>
+
+                            // When the user clicks anywhere outside of the modal, close it
+                            window.onclick = function(event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
+                            }
+                        </script>
                     </div>
                 </div>
                 <h6>View Previous Updates</h6>
@@ -144,7 +142,7 @@
                         <div id="oldFeedbackModal" class="modal">
                             <!-- Modal content -->
                             <div class="modal-content">
-                                <span class="close">&times;</span>
+                                <span class="closeOldOne">&times;</span>
                                 <div class="form-feedback">
                                     <form class="feedback-form" action="/dashboard/{{this._id}}/feedback" method="post">
                                         <textarea name="feedback" id="" cols="30" rows="10"></textarea>
@@ -159,15 +157,6 @@
                                 </div>
                             </div>
                         </div>
-
-                            {{!-- <form class="feedback-form" action="/dashboard/{{this._id}}/feedback" method="post">
-                                <textarea name="feedback" id="" cols="30" rows="10"></textarea>
-                                <button type="submit">Submit</button>
-                            </form> --}}
-                            {{!-- {{#each this.feedback}}
-                                <p>Your feedback on this item:</p>
-                                <p>{{this.feedback}}</p>
-                            {{/each}} --}}
                             
                         <script>
                                 // Get the modal
@@ -177,7 +166,7 @@
                                 var oldFeedbackBtn = document.getElementById("oldDeedbackBtn{{this._id}}");
 
                                 // Get the <span> element that closes the modal
-                                var span = document.getElementsByClassName("close")[0];
+                                var spanOldOne = document.getElementsByClassName("closeOldOne")[0];
 
                                 // When the user clicks the button, open the modal 
                                 oldFeedbackBtn.onclick = function() {
@@ -185,7 +174,7 @@
                                 }
 
                                 // When the user clicks on <span> (x), close the modal
-                                span.onclick = function() {
+                                spanOldOne.onclick = function() {
                                     oldFeedbackModal.style.display = "none";
                                 }
 
