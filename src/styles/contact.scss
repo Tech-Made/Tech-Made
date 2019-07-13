@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.form {
+    display: grid;
+    .top-fields {
+        display: flex;
+        input {
+            padding: .6em 1.8em;
+            font-size: 1em;
+            border: 1px solid rgba(55, 55, 55, 0.632);
+            &:focus {
+            border: 2px solid $primary;
+            outline: none
+            }
+        }
+    }
+    .message-box {
+        border: 1px solid rgba(55, 55, 55, 0.632);
+        margin-top: 1em;
+        height: 16em;
+        font-size: 1em;
+        padding: .6em 1em;
+    }
+    button {
+        margin: 1em auto 0 auto;
+    }
+}

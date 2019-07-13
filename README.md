@@ -1,91 +1,68 @@
-# Tech-Made
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Sprint 4
-- [ ] Set up payment system (How will this work?)
-    - Clients pay half the price upfront and half afterward before we deploy the site live.
-    - So once we send the first update (Website Acceptance is always the first update).
-    - Then we show the users a section at the top to complete their payments.
-        - Admin should be able to request half the agreed payment to the user that will show in their dashboard. Then it will dissapear.
-        - Payment panel will show up again when we charge the user again.
-        - They should also have a tab to see their transactions.
-    - How will this work in code?
-        - In the admin update, admin can send client a charge that we enter in - this saves in the clients paymentsDue array.
-        - On the client view, if they have a value in their paymentsDue array, it will show on the front end.
-        - Once the client completes the payment, the value is removed and added to paymentsCompleted array.
-- [X] Users can recieve multiple updates that admin send to them
-- [X] Clients come give feedback on any update
+## Available Scripts
 
-## Sprint 3
+In the project directory, you can run:
 
-### To Do's:
+### `npm start`
 
-- Admin user can post a string to the user's project 
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- [-] - Create login/signup error message views 
-- [ ] - Fix website register form UI
-- [ ] - Design Dashboard UI
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-### Notes
- MVP User authentication error handling user experience
- If a user registers with an email that already exists or username that already exists,
- - they should be prompted to login and have a flash message saying an account with that
- username and/or email already exists.
-- Create frontend JavaScript to check that their niputted password is strong enough.
-- If a user tries to login with an incorrect email/password
-    - refresh the page and flash them that the login info is incorrect.
+### `npm test`
 
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Sprint 2
+### `npm run build`
 
-### To Do's:
-- [X] - Create get getting-started route.
-- [X] - Create get dashboard route.
-- [X] - Create getting started form UI (Multi Page form that finishes with 'Sign Up' form.).
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Getting Started
-Opening Form - Showcasing what we offer:
-- Website Design
-- Easy Content Management
-- SSL Certifacte / Security
-- Expertise and Passion
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-Next, How things usually work.
-- We recieve a message from you with the basic info.
-- We contact you back to gage whether or not this is someone we want to work with.
-- We understand your wants and needs and hit the drawing board.
-- We will come back to you with potential basic designs / themes to think about.
-- You can always tell us you don't like anything and suggest anything.
-- We start development.
-- We build out our front end and back end system of your website simultaniously. 
-- You can choose in your dashboard, how often you'd like to recieve an update
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Dashboard
+### `npm run eject`
 
-So what is the dashboards purpose and what does it contain? The dashboard is where we communicate everything
-with our clients, it is there go to spot for any questions.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-What it contains:
- - Progress Tracker of their site.
- - An easy place for them to document their feedback on our work and have a log of our conversation.
- - Keep track of the contract / deadlines.
- - Customize settings as to how often they want us to text/email them the project milestones.
- - Importantly, submit timely payments through the dashboard portal with Stripe integration.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Back Log Sprint
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### To Do's
-- [ ] - Create get signup route.
-- [ ] - Create get login route.
-- [ ] - set up MongoDB/Mongoose
-- [ ] - Authenticate users with bcrypt/jwt. (Debated using basic-auth but it's not worth it in this case).
-- [ ] - Inject dynamic content into dashboard view with handlebars helpers.
-- [ ] - Create middleware authentication to use on all screens.
-- [ ] - Configure subdomain *dashboard.techmade.co
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Sprint 1
-### Homepage content:
-- [X] Why We Exist
-- [X] Services
-- [X] How we work
-- [X] Our Work
-- [X] Get Started
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

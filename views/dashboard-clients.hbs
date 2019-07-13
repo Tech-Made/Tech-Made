@@ -1,9 +1,0 @@
-<main class="admin-dashboard-clients">
-    <h3>Clients</h3>
-    <ul>
-        {{#each clients}}
-        <input type="hidden" name="clientId" value="{{ this._id }}"> 
-        <li><a href="/dashboard/clients/{{this._id}}">{{this.fullName}}</a></li>
-        {{/each}}
-    </ul>
-</main>

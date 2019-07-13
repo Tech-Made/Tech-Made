@@ -1,0 +1,18 @@
+$primary: #0F50F4;
+$light: #fff;
+$dark: #121212;
+
+
+@font-face {
+    font-family: 'AvenirNext-Bold';
+    src: url('../assets/fonts/AvenirNext/AvenirNextLTPro-Bold.otf');
+}
+  
+@font-face {
+    font-family: 'AvenirNext-Regular';
+    src: url('../assets/fonts/AvenirNext/AvenirNextLTPro-Regular.otf');
+}
+  
+  
+$textfont: 'AvenirNext-Regular', serif;
+$titlefont: 'AvenirNext-Bold', serif;

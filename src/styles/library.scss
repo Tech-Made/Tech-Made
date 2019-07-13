@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+.btn {
+    width: 12em;
+    height: 3em;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    font-family: $textfont;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+        -webkit-box-shadow: 3px 13px 12px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 3px 13px 12px -5px rgba(0,0,0,0.75);
+        box-shadow: 3px 13px 12px -5px rgba(0,0,0,0.75);
+    }
+}
+
+.dark {
+    background-color: $dark;
+}
+
+.light {
+    background-color: $primary;
+}

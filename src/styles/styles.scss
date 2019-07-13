@@ -1,0 +1,16 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; // NO BEUNO FOR SCROLLABLE SITES.
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+@import './layouts.scss';
+@import './library.scss';
