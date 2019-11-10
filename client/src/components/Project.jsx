@@ -2,14 +2,13 @@ import React from 'react'
 
 const Project = (props) => {
     const {
-        id,
         name,
         about,
         image
     } = props;
 
     return (
-        <div className="project" key={id}>
+        <div className="project">
             <div className="asset-container bluebg">
                 <img className='project-asset' src={image} />
             </div>

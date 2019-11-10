@@ -1,14 +1,11 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/home.scss';
 import Lightning from '../assets/logos/logo.png';
 import Logo from '../assets/logos/logo-white-only.png';
 import Projects from  '../components/Projects';
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 
 const Home = () => {
-  const myRef = useRef(null);
-  const executeScroll = () => scrollToRef(myRef)
 
   return (
     <>

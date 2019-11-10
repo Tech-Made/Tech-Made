@@ -8,6 +8,9 @@ import Project from './Project';
 
 // Project image imports
 import tempimg from '../assets/images/dm-landing-demo.gif';
+import creditswag from '../assets/images/creditswag.png';
+import pinetree from '../assets/images/pinetree.gif';
+import djiggy from '../assets/images/djiggy.gif';
 
 
 const Projects = (props) => {
@@ -15,10 +18,28 @@ const Projects = (props) => {
   const projects = [
     {
       id: 1,
+      name: 'Credit Swag - Conquer Credit Management',
+      about: 'A budgeting app for teens. Built for iOS, Android and Web.',
+      image: creditswag
+    },
+    {
+      id: 2,
+      name: 'Pine Tree Pictures',
+      about: 'LA and Chicago based production company. Mobile Responsive Website.',
+      image: pinetree
+    },
+    {
+      id: 5,
+      name: 'DJ Iggy',
+      about: 'DJ Iggy, born Ignacio Ceja, is a Chicago based sound selector.',
+      image: djiggy
+    },
+    {
+      id: 3,
       name: 'Digital Menu',
       about: 'Online database menu management for restaurants. Open API any onlinemenu service can make a request for data.',
       image: tempimg
-    }
+    } 
   ]
 
   return (
@@ -30,7 +51,7 @@ const Projects = (props) => {
               {
                 projects.map((project) => (
                   <Project
-                    id={project.id}
+                    key={project.id}
                     name={project.name}
                     about={project.about}
                     image={project.image}

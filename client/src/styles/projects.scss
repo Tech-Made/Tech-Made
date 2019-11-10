@@ -1,46 +1,30 @@
 @import './variables.scss';
 
 .projects-section {
-    padding: 0px 100px 130px 100px;
+    padding: 3em 2em 3em 2em;
     // background-color: #ffffff;
-    margin-top: 4em;
     font-family: $textfont;
     color: $text;
     text-align: center;
+    padding-top: 8.4em;
     .projects-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-row-gap: 6em;
-        justify-items: center;
-    }
-    .project {
-        width: 28vw;
-        padding-top: 1.8em;
-        overflow: hidden;
-        border: 1px solid #d5d5d581;
-        box-shadow: #d5d5d581;
-        border-radius: 8px;
-        -webkit-box-shadow: 10px 10px 5px -5px #EBEFF3;
-            -moz-box-shadow: 10px 10px 5px -5px #EBEFF3;
-            box-shadow: 10px 10px 5px -5px #EBEFF3;
-        background-color: #ffffff;
-
         display: flex;
         flex-direction: column;
+        // grid-template-columns: repeat(1, 3fr);
+        // grid-row-gap: 6em;
+        justify-items: center;
+        align-items: center;
+    }
+    .project {
+        max-width: calc( 80vw );
+        max-height: 80vh;
+        display: flex;
         justify-content: space-between;
+        margin-bottom: 8em;
         .asset-container {
-            max-width: 90%;
-            // min-height: 41%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-content: center;
-            align-items: center;
-            padding-top: 1.6em;
             .project-asset {
-                width: 90%;
-                height: 90%;
+                max-width: 44vw;
+                max-height: 74vh;
             }
         }
         .project-content {
@@ -96,6 +80,7 @@
     }
     .section-title {
         font-size: 3.4em;
+        margin-bottom: 2.2em;
     }
     .section-slogan {
         font-size: 1.8em;
