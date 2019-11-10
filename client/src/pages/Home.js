@@ -11,9 +11,15 @@ const Home = () => {
     <>
       <div className='landing-layout'>
         <div className='lightning-parent'>
-          <img className='lightning lightning-logo' alt='lightning' src={Lightning}></img>
+        <Link to='/contact'>
+        <img className='lightning lightning-logo' alt='lightning' src={Lightning}></img>
+        </Link>
         </div>
-        <img className='tm-logo' alt='techmade' src={Logo}></img>
+        <img
+          className='tm-logo'
+          alt='techmade'
+          src={Logo}
+        ></img>
         <p className='slogan'>We craft stunning digital experiences. 💻⚡️</p>
         <div>
           <a

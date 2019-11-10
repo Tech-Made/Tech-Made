@@ -8,7 +8,9 @@ const NavBar = () => {
         <header>
             <nav>
                 <div className='logo'>
-                    <img alt='techmade' src={Logo}></img>
+                <Link className='nav-link' to='/'>
+                    <img alt='techmade' src={Logo}/>
+                </Link>
                 </div>
                 <div className='links'>
                     {/* <p className='nav-link'>Request Site</p> */}

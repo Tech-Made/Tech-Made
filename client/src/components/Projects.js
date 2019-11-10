@@ -11,6 +11,9 @@ import tempimg from '../assets/images/dm-landing-demo.gif';
 import creditswag from '../assets/images/creditswag.png';
 import pinetree from '../assets/images/pinetree.gif';
 import djiggy from '../assets/images/djiggy.gif';
+import sadboykj from '../assets/images/sadboykj.png';
+import moving from '../assets/images/moving.gif';
+
 
 
 const Projects = (props) => {
@@ -29,17 +32,29 @@ const Projects = (props) => {
       image: pinetree
     },
     {
-      id: 5,
+      id: 3,
+      name: 'Moving Forks',
+      about: 'Modern aesthetic for a exclusive private dining club to throw their events.',
+      image: moving
+    },
+    {
+      id: 4,
       name: 'DJ Iggy',
       about: 'DJ Iggy, born Ignacio Ceja, is a Chicago based sound selector.',
       image: djiggy
     },
     {
-      id: 3,
+      id: 5,
+      name: 'Sad Boy KJ',
+      about: 'Oakland based rapper website for music, event booking and concert ticketing',
+      image: sadboykj
+    },
+    {
+      id: 6,
       name: 'Digital Menu',
       about: 'Online database menu management for restaurants. Open API any onlinemenu service can make a request for data.',
       image: tempimg
-    } 
+    }
   ]
 
   return (
