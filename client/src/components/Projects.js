@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/projects.scss';
-import axios from 'axios'; 
-import Lottie from 'lottie-react-web'
-import loading from '../assets/loading.json';
-import { FETCH_STATUSES } from '../data/types';
+import { Link } from 'react-router-dom';
 import Project from './Project';
 
 // Project image imports
@@ -75,6 +72,11 @@ const Projects = (props) => {
               }
               <Project/>
             </div>
+            <Link to='/contact'>
+            <button className='btn light'>
+              Let's Talk
+            </button>
+          </Link>
         </div>
     </>
   );
