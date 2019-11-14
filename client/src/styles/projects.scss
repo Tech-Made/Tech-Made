@@ -79,8 +79,10 @@
         }
     }
     .section-title {
+        letter-spacing: 1px;
         font-size: 3.4em;
         margin-bottom: 2.2em;
+        font-family: AvenirNext-Bold;
     }
     .section-slogan {
         font-size: 1.8em;
@@ -198,3 +200,31 @@
         }
     }
 }
+
+
+@media screen and (max-width:480px) {
+    .projects-section {
+        padding: 1em 1em 2em 1em;
+        font-family: "AvenirNext-Regular", serif;
+        color: #121212;
+        text-align: center;
+        padding-top: 4.4em;
+        .section-title {
+            font-size: 2.6em;
+            margin-bottom: 2.2em;
+            font-family: "AvenirNext-Bold", serif;
+        }
+        .project {
+            max-height: 100%;
+            flex-direction: column !important;
+            margin-bottom: 5em;
+        }
+        .project-asset {
+            max-width: 88vw !important;
+        }
+        .asset-container {
+            display: flex;
+            justify-content: center;
+        }
+    }
+  }

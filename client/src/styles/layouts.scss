@@ -37,3 +37,20 @@
         }
     }
 }
+
+
+@media screen and (max-width:480px) {
+    .landing-layout{
+      .tm-logo {
+        max-width: 18em;
+      }
+      .lightning-logo {
+        margin-top: 2em;
+        max-width: 5em;
+      }
+      .slogan{
+        font-size: 1.2em;
+        margin-bottom: 1.6em;
+      }
+    }
+  }

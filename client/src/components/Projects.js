@@ -10,8 +10,7 @@ import pinetree from '../assets/images/pinetree.gif';
 import djiggy from '../assets/images/djiggy.gif';
 import sadboykj from '../assets/images/sadboykj.png';
 import moving from '../assets/images/moving.gif';
-
-
+import makeschool from '../assets/images/makeschool.gif';
 
 const Projects = (props) => {
 
@@ -36,18 +35,24 @@ const Projects = (props) => {
     },
     {
       id: 4,
+      name: 'Make School',
+      about: 'A coding school of the future.',
+      image: makeschool
+    },
+    {
+      id: 5,
       name: 'DJ Iggy',
       about: 'DJ Iggy, born Ignacio Ceja, is a Chicago based sound selector.',
       image: djiggy
     },
     {
-      id: 5,
+      id: 6,
       name: 'Sad Boy KJ',
       about: 'Oakland based rapper website for music, event booking and concert ticketing',
       image: sadboykj
     },
     {
-      id: 6,
+      id: 7,
       name: 'Digital Menu',
       about: 'Online database menu management for restaurants. Open API any onlinemenu service can make a request for data.',
       image: tempimg
@@ -57,7 +62,7 @@ const Projects = (props) => {
   return (
     <>
       <div id='projects-section' className="projects-section">
-            <h1 className='section-title'>Our Products</h1>
+            <h1 className='section-title'>OUR <span className='blue'>PRODUCTS</span></h1>
             {/* <p className='section-slogan'>Designed and developed with love at Techmade</p> */}
             <div className="projects-container">
               {
