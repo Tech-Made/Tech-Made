@@ -8,7 +8,7 @@ module.exports = (function() {
         return new Promise(function(resolve, reject) { 
             hb.render('views/welcome.hbs', {data} ).then(data => {
                 sgMail.send({
-                    to: 'info@chicagocanineclub.com',
+                    to: 'team@techmade.co',
                     from: data.email,
                     subject: 'Website Contact Inquiry ',
                     html: html

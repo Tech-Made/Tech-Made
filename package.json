@@ -1,7 +1,7 @@
 {
-  "name": "canine-club-chicago",
+  "name": "techmade",
   "version": "1.0.0",
-  "description": "Canine Club Chicago website",
+  "description": "Techmade",
   "main": "gulpfile.js",
   "keywords": [
     "template",

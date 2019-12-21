@@ -8,7 +8,7 @@ const methodOverride = require('method-override');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 5000
-require('./data/canine-club-chicago-db');
+require('./data/techmade-db');
 const cors = require('cors')
 
 // view engine setup
