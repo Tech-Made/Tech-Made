@@ -2,7 +2,7 @@
   "name": "techmade",
   "version": "1.0.0",
   "description": "Techmade",
-  "main": "gulpfile.js",
+  "main": "server.js",
   "keywords": [
     "template",
     "html"
