@@ -1,49 +1,63 @@
 {
-  "name": "Techmade",
+  "name": "canine-club-chicago",
   "version": "1.0.0",
-  "engines": {
-    "node": "8.11.2"
-  },
-  "description": "Techmade",
-  "main": "server.js",
+  "description": "Canine Club Chicago website",
+  "main": "gulpfile.js",
+  "keywords": [
+    "template",
+    "html"
+  ],
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon index.js --ignore './client/'",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "nodemon server.js",
+    "test": "mocha **/*.test.js",
+    "test-watch": "nodemon --exec 'npm test'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/"
+  "engines": {
+    "node": "11.11.0",
+    "npm": "6.10.1"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/"
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0",
+    "autoprefixer": "^7.2.6",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^2.0.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-stylefmt": "^1.1.0",
+    "gulp-uglify": "^3.0.0",
+    "postcss-flexbugs-fixes": "^3.3.0",
+    "run-sequence": "^2.2.1",
+    "stylefmt": "^6.0.0",
+    "stylelint-config-suitcss": "^13.0.0"
   },
-  "homepage": "https://github.com/",
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
-    "concurrently": "^3.6.0",
-    "cookie-session": "^2.0.0-beta.3",
+    "bcrypt": "^3.0.4",
+    "body-parser": "~1.18.2",
+    "bootstrap": "^4.0.0",
+    "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
-    "dotenv": "^8.0.0",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.1.0",
-    "google-auth-library": "^1.6.1",
-    "google-calendar": "^1.3.2",
-    "googleapis": "^32.0.0",
-    "localtunnel": "^1.9.0",
-    "method-override": "^3.0.0",
-    "moment": "^2.24.0",
-    "mongoose": "^5.2.2",
-    "node-schedule": "^1.3.0",
-    "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0",
-    "passport-oauth2-refresh": "^1.1.0",
-    "twilio": "^3.18.0"
+    "debug": "~2.6.9",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "flexslider": "^2.7.0",
+    "font-awesome": "^4.7.0",
+    "handlebars-helpers": "^0.10.0",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.4.11",
+    "morgan": "^1.9.1",
+    "owl.carousel": "^2.2.0",
+    "serve-favicon": "~2.4.5",
+    "stripe": "^5.3.0",
+    "superfish": "^1.7.9",
+    "validator": "^10.11.0"
   }
 }
