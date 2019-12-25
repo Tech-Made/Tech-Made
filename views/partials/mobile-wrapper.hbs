@@ -11,16 +11,24 @@
         </div> --}}
         <div class="menu-content">
             <ul class="menulist object-custom-menu">
-                    <li class="has-mega-menu"><a href="/"><span>Home</span></a>
-                    </li>
-                    <li class="has-mega-menu"><a href="/portfolio"><span>Portfolio</span></a>
-                    </li>
-                    <li class="has-mega-menu"><a href="/contact"><span>Contact</span></a>
-                    </li>
-                {{!-- <li class="has-mega-menu"><a href="#"><span>Home</span></a></li> --}}
-
+                <a class="tm-nav-link" href="/"><li class="has-mega-menu"><span>Home</span></li></a>
+                <a class="tm-nav-link" href="/portfolio"><li class="has-mega-menu"><span>Portfolio</span></li></a>
+                <a class="tm-nav-link" href="/contact"><li class="has-mega-menu"><span>Contact</span></li></a>
             </ul>
         </div>
     </div>
 </div>
 <!-- End Popup Menu -->
+
+<style>
+    .tm-nav-link {
+        padding: 14px 4px; 
+        cursor: pointer;
+    }
+    .tm-nav-link li {
+        color: white;
+    }
+    .tm-nav-link li:hover {
+        color: #0038E3;
+    }
+</style>
