@@ -45,7 +45,7 @@
     "debug": "~2.6.9",
     "dotenv": "^4.0.0",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "flexslider": "^2.7.0",
     "font-awesome": "^4.7.0",
     "handlebars-helpers": "^0.10.0",
